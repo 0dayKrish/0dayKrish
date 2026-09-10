@@ -591,6 +591,8 @@ export const portfolioData: PortfolioData = {
       issuer: "Cisco",
       category: "Networking",
       status: "Certified",
+      verificationUrl: "https://www.credly.com/badges/99409da1-0b53-48cb-bc75-1d38a982f8e6/public_url",
+      badgeLabel: "CREDLY VERIFIED",
     },
     {
       id: "aws-cloud-foundations",
@@ -621,6 +623,8 @@ export const portfolioData: PortfolioData = {
       issuer: "Certiport",
       category: "Software & Automation",
       status: "Certified",
+      verificationUrl: "https://www.credly.com/badges/a1fa328d-4ed1-4bea-a4d9-b4840a1d6119/public_url",
+      badgeLabel: "CREDLY VERIFIED",
     },
     {
       id: "certiport-html-css",
@@ -628,6 +632,8 @@ export const portfolioData: PortfolioData = {
       issuer: "Certiport",
       category: "Software & Automation",
       status: "Certified",
+      verificationUrl: "https://www.credly.com/badges/df924b2c-f4aa-4f71-9a48-073bed170360/public_url",
+      badgeLabel: "CREDLY VERIFIED",
     },
   ],
 

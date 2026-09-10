@@ -34,7 +34,9 @@ export function Certifications() {
               <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse" />
               <span className="text-[#0a0a0a] font-bold">CREDENTIALS.REGISTRY</span>
             </div>
-            <span>{certifications.length + 1} ENTRIES RECORDED // 1 ACTIVE PIPELINE</span>
+            <span>
+              {certifications.filter((c) => c.verificationUrl).length} VERIFIED VIA CREDLY // {certifications.length + 1} ENTRIES RECORDED
+            </span>
           </div>
 
           {/* 8-Card Responsive Grid with 1px border gap */}
@@ -88,7 +90,11 @@ export function Certifications() {
                     >
                       <span className="flex items-center gap-1.5">
                         <ShieldCheck className="w-3.5 h-3.5 text-[#059669] group-hover/btn:text-white transition-colors" />
-                        <span>VERIFY ON CREDLY</span>
+                        <span>
+                          {cert.verificationUrl.includes("credly.com")
+                            ? "VERIFY ON CREDLY"
+                            : "VERIFY CREDENTIAL"}
+                        </span>
                       </span>
                       <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </a>
