@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
 import { CyberRadar } from "./ui/CyberRadar";
+import { Interactive3DCard } from "./ui/Interactive3DCard";
 
 export function Hero() {
   const { identity } = portfolioData;
   const [uptimeStr, setUptimeStr] = useState("000d 00h 00m 00s");
+  const [viewMode, setViewMode] = useState<"3d" | "radar">("3d");
 
   useEffect(() => {
     const startDate = new Date(identity.uptimeDate).getTime();
@@ -141,23 +143,47 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Visual Element */}
+          {/* Right Visual Element: 3D Illustration following cursor */}
           <div className="w-full lg:w-auto flex-shrink-0 flex flex-col items-center lg:items-end">
-            <CyberRadar />
-
-            {/* Uptime Box */}
-            <div className="w-full max-w-[560px] mt-4 border border-[#0a0a0a] bg-[#0a0a0a] text-[#f4f3ef] p-3 font-mono flex items-center justify-between gap-3 shadow-[3px_3px_0px_#059669]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse-glow" />
-                <span className="text-[0.62rem] tracking-widest text-[#a3a3a3] font-semibold">
-                  COMMUNITY UPTIME
-                </span>
-              </div>
-              <div className="text-[0.72rem] font-bold tracking-wider tabular-nums bg-[#171717] px-2.5 py-1 border border-[#262626]">
-                <span className="text-[#059669] mr-1.5">▶</span>
-                {uptimeStr}
-              </div>
+            {/* View Mode Switcher */}
+            <div className="flex items-center gap-2 mb-2 font-mono text-[0.6rem]">
+              <button
+                onClick={() => setViewMode("3d")}
+                className={`b-tag cursor-pointer ${
+                  viewMode === "3d" ? "bg-[#0a0a0a] text-white border-[#0a0a0a]" : ""
+                }`}
+              >
+                [ 3D AVATAR ]
+              </button>
+              <button
+                onClick={() => setViewMode("radar")}
+                className={`b-tag cursor-pointer ${
+                  viewMode === "radar" ? "bg-[#0a0a0a] text-white border-[#0a0a0a]" : ""
+                }`}
+              >
+                [ RADAR TELEMETRY ]
+              </button>
             </div>
+
+            {viewMode === "3d" ? (
+              <Interactive3DCard uptimeText={uptimeStr} />
+            ) : (
+              <div className="flex flex-col items-center lg:items-end">
+                <CyberRadar />
+                <div className="w-full max-w-[560px] mt-4 border border-[#0a0a0a] bg-[#0a0a0a] text-[#f4f3ef] p-3 font-mono flex items-center justify-between gap-3 shadow-[3px_3px_0px_#059669]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse-glow" />
+                    <span className="text-[0.62rem] tracking-widest text-[#a3a3a3] font-semibold">
+                      COMMUNITY UPTIME
+                    </span>
+                  </div>
+                  <div className="text-[0.72rem] font-bold tracking-wider tabular-nums bg-[#171717] px-2.5 py-1 border border-[#262626]">
+                    <span className="text-[#059669] mr-1.5">▶</span>
+                    {uptimeStr}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
