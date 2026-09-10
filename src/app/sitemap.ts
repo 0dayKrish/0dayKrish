@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://0daykrish.com";
+  const baseUrl = "https://0daykrish.github.io";
   const lastModified = new Date();
 
   return [
