@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import bsidesLogo from "../../public/bsides-vadodara-logo.png";
 import { portfolioData } from "@/data/portfolio";
 import { SectionHeader } from "./ui/SectionHeader";
 
@@ -105,7 +106,7 @@ export function BSidesSpotlight() {
                   >
                     <div className="relative w-full h-full flex items-center justify-center">
                       <Image
-                        src="/bsides-vadodara-logo.png"
+                        src={bsidesLogo}
                         alt="BSides Vadodara Official Logo"
                         fill
                         className="object-contain p-2 group-hover:scale-105 transition-transform duration-200"
