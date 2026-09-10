@@ -82,8 +82,10 @@ export interface CertificationItem {
     | "Software & Automation"
     | "Cloud Security"
     | "Cloud Fundamentals"
-    | "Cloud";
-  status: "Certified" | "Completed" | "Active";
+    | "Cloud"
+    | "Offensive Security"
+    | "Red Teaming";
+  status: "Certified" | "Completed" | "In Progress" | "Active";
   verificationUrl?: string;
   badgeLabel?: string;
 }

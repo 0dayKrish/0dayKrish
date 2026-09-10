@@ -635,6 +635,27 @@ export const portfolioData: PortfolioData = {
       verificationUrl: "https://www.credly.com/badges/df924b2c-f4aa-4f71-9a48-073bed170360/public_url",
       badgeLabel: "CREDLY VERIFIED",
     },
+    {
+      id: "pt1",
+      name: "Junior Penetration Tester (PT1)",
+      issuer: "TryHackMe",
+      category: "Offensive Security",
+      status: "In Progress",
+    },
+    {
+      id: "cpent",
+      name: "Certified Penetration Testing Professional (CPENT)",
+      issuer: "EC-Council",
+      category: "Offensive Security",
+      status: "In Progress",
+    },
+    {
+      id: "crtp",
+      name: "Certified Red Team Professional (CRTP)",
+      issuer: "Altered Security",
+      category: "Red Teaming",
+      status: "In Progress",
+    },
   ],
 
   bsidesVadodara: {
