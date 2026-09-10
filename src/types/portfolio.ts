@@ -88,6 +88,7 @@ export interface CertificationItem {
   status: "Certified" | "Completed" | "In Progress" | "Active";
   verificationUrl?: string;
   badgeLabel?: string;
+  focus?: string;
 }
 
 export interface PortfolioData {

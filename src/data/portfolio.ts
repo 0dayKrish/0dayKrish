@@ -641,6 +641,7 @@ export const portfolioData: PortfolioData = {
       issuer: "TryHackMe",
       category: "Offensive Security",
       status: "In Progress",
+      focus: "Hands-on network enumeration, vulnerability identification & web app penetration testing.",
     },
     {
       id: "cpent",
@@ -648,6 +649,7 @@ export const portfolioData: PortfolioData = {
       issuer: "EC-Council",
       category: "Offensive Security",
       status: "In Progress",
+      focus: "Multi-cast pivoting, binary analysis, IoT firmware exploitation & advanced CTF methodologies.",
     },
     {
       id: "crtp",
@@ -655,6 +657,7 @@ export const portfolioData: PortfolioData = {
       issuer: "Altered Security",
       category: "Red Teaming",
       status: "In Progress",
+      focus: "Active Directory exploitation, Kerberos ticket abuse, local privilege escalation & domain dominance.",
     },
   ],
 
