@@ -8,15 +8,31 @@ import { SectionHeader } from "./ui/SectionHeader";
 export function Projects() {
   const { featuredProjects } = portfolioData;
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
+
+  const categories = [
+    "ALL",
+    "Offensive Security",
+    "Cloud & Infrastructure",
+    "Web Security",
+    "AI & LLM Security",
+    "Tooling & Automation",
+    "Network Security",
+  ];
+
+  const filteredProjects =
+    selectedCategory === "ALL"
+      ? featuredProjects
+      : featuredProjects.filter((p) => p.category === selectedCategory);
 
   return (
     <section id="projects" className="py-16 sm:py-20 border-b border-[#0a0a0a]" aria-label="Technical Projects">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <SectionHeader label="TECHNICAL_PROJECTS" number="004" id="projects-heading" />
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <p className="font-mono text-xs sm:text-[0.8rem] text-[#575757] max-w-xl">
-            Security toolchains, AI threat evaluation harnesses, and penetration testing testbeds built to analyze and fortify attack surfaces.
+            Reconnaissance frameworks, self-hosted Zero Trust infrastructure, automated cloud backups, email forensics telemetry, and AI security testbeds.
           </p>
           <a
             href="https://github.com/0daykrish"
@@ -28,9 +44,24 @@ export function Projects() {
           </a>
         </div>
 
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap gap-2 mb-8 font-mono text-[0.6rem]">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`b-tag cursor-pointer ${
+                selectedCategory === cat ? "bg-[#0a0a0a] text-white border-[#0a0a0a]" : ""
+              }`}
+            >
+              {cat === "ALL" ? `[ ALL_PROJECTS (${featuredProjects.length}) ]` : cat}
+            </button>
+          ))}
+        </div>
+
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {featuredProjects.map((project, idx) => (
+          {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
               className="border border-[#0a0a0a] bg-[#eae7df] shadow-[4px_4px_0px_#0a0a0a] hover:shadow-[6px_6px_0px_#059669] hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
@@ -45,7 +76,7 @@ export function Projects() {
                       <span className="w-2 h-2 rounded-full border border-[#78716c]" />
                     </div>
                     <span className="text-[#0a0a0a] font-bold uppercase">
-                      PROJ_0{idx + 1}.MD
+                      PROJ_{(idx + 1).toString().padStart(2, "0")}.MD
                     </span>
                   </div>
                   <div className="flex items-center gap-2">

@@ -325,6 +325,134 @@ export const portfolioData: PortfolioData = {
           "Hands-on telemetry development deepens understanding of web protocols, header parsing, and client-side privacy boundaries.",
       },
     },
+    {
+      id: "ai-prompt-eval",
+      title: "LLM Guardrail & Prompt Injection Testbed",
+      summary:
+        "An adversarial testing harness designed to evaluate large language model applications against OWASP Top 10 for LLM vulnerabilities, indirect prompt injections, and system prompt leakage.",
+      impact:
+        "Simulates multi-turn jailbreak attempts, evaluates guardrail bypass rates, and generates structured security evaluation reports.",
+      category: "AI & LLM Security",
+      technologies: ["Python", "OpenAI / Claude API", "Prompt Injection", "OWASP LLM Top 10", "FastAPI"],
+      year: "2025",
+      githubUrl: "https://github.com/0daykrish",
+      caseStudy: {
+        overview:
+          "With the rapid adoption of agentic LLM systems, prompt injection and jailbreaks represent direct risks to application business logic. This project evaluates model vulnerabilities against automated injection payloads.",
+        objectives: [
+          "Benchmark LLM guardrails against direct and indirect prompt injections",
+          "Test extraction resistance of system instructions and sensitive context",
+          "Automate scoring of model susceptibility using adversarial heuristics",
+        ],
+        technicalHighlights: [
+          "Synthesizes 50+ adversarial jailbreak techniques across token manipulation, character obfuscation, and cognitive deception",
+          "Validates output against strict delimiter enforcement and data sanitization filters",
+          "Generates structured JSON and Markdown audit logs with CVSS-inspired risk vectors",
+        ],
+        findingsOrResults: [
+          "Demonstrated that heuristic guardrails without semantic validation could be bypassed via multi-turn framing",
+          "Implemented defense-in-depth sanitization reducing injection success significantly in test harnesses",
+        ],
+        keyTakeaway:
+          "AI security requires treating natural language user input with the same zero-trust model historically applied to untrusted SQL or shell commands.",
+      },
+    },
+    {
+      id: "web-recon-pipeline",
+      title: "Automated Attack Surface & Reconnaissance Engine",
+      summary:
+        "A modular offensive reconnaissance and asset discovery toolchain for mapping web applications, discovering hidden endpoints, parameter fuzzing, and auditing exposed headers.",
+      impact:
+        "Accelerates penetration testing scope discovery by automating multi-stage subdomain enumeration, technology profiling, and ffuf-based fuzzing workflows.",
+      category: "Offensive Security",
+      technologies: ["Bash", "Python", "ffuf", "Nmap", "Nikto", "Linux"],
+      year: "2024",
+      githubUrl: "https://github.com/0daykrish",
+      caseStudy: {
+        overview:
+          "During web application penetration tests, thorough reconnaissance is critical to uncovering forgotten staging endpoints, misconfigured headers, and exposed administrative interfaces.",
+        objectives: [
+          "Unify asynchronous asset discovery and virtual host detection into a streamlined pipeline",
+          "Automate security header and SSL/TLS cipher audit checks",
+          "Export standardized target profiles for manual Burp Suite deeper inspection",
+        ],
+        technicalHighlights: [
+          "Orchestrates fast endpoint probing using custom wordlists tuned for modern microservices",
+          "Integrated rate-limiting aware fuzzing to minimize detection and avoid service disruption",
+          "Automates baseline scans across target subdomains with consolidated reporting",
+        ],
+        findingsOrResults: [
+          "Drastically cut reconnaissance time during security assessments while surfacing shadowed endpoints",
+          "Flagged missing security headers (HSTS, CSP, X-Frame-Options) across testing environments",
+        ],
+        keyTakeaway:
+          "Effective offensive security is built on meticulous reconnaissance—understanding every entry point before initiating targeted exploitation.",
+      },
+    },
+    {
+      id: "api-bola-auditor",
+      title: "API Security & BOLA / IDOR Verification Lab",
+      summary:
+        "A dedicated testing environment and test suite modeling Broken Object Level Authorization (BOLA) and Broken Object Property Level Authorization (BOPLA) scenarios in modern REST APIs.",
+      impact:
+        "Provides reproducible test fixtures for testing authorization enforcement across tenant boundaries, UUID vs integer identifiers, and role-based access matrix validation.",
+      category: "Web Security",
+      technologies: ["Python", "REST APIs", "Burp Suite", "OWASP API Top 10", "SQL"],
+      year: "2024",
+      githubUrl: "https://github.com/0daykrish",
+      caseStudy: {
+        overview:
+          "BOLA remains the #1 risk on the OWASP API Security Top 10. This lab environment simulates real-world SaaS multi-tenancy access-control logic to practice and validate remediation strategies.",
+        objectives: [
+          "Demonstrate exploitation mechanisms of IDOR and BOLA in microservices architectures",
+          "Implement robust user-context validation on every object retrieval query",
+          "Create automated test scripts to detect unauthorized cross-tenant data access",
+        ],
+        technicalHighlights: [
+          "Simulated multi-tenant user authentication with JWT validation and scoped permissions",
+          "Mapped stateful parameter tampering vectors across nested API routes",
+          "Provided side-by-side vulnerable vs hardened code patterns",
+        ],
+        findingsOrResults: [
+          "Proved that frontend UI role checks provide zero security without backend database query ownership verification",
+          "Codified strict object ownership checks into reusable API security patterns",
+        ],
+        keyTakeaway:
+          "Never rely on obscure identifiers or client-side trust; object-level access must be explicitly authorized at the database query layer.",
+      },
+    },
+    {
+      id: "network-telemetry-sentinel",
+      title: "Network Packet Analyzer & Telemetry Monitor",
+      summary:
+        "A lightweight network traffic inspection and protocol monitoring script utilizing Wireshark/tshark primitives and Python socket analysis to audit unusual connection patterns.",
+      impact:
+        "Analyzes TCP/UDP connection states, highlights unencrypted plaintext protocols (HTTP/FTP/Telnet), and flags unexpected DNS tunneling heuristics.",
+      category: "Network Security",
+      technologies: ["Python", "Wireshark", "TCP/IP", "Networking", "Linux"],
+      year: "2024",
+      githubUrl: "https://github.com/0daykrish",
+      caseStudy: {
+        overview:
+          "Understanding low-level packet flow is essential for both penetration testing and infrastructure hardening. This tool provides real-time protocol telemetry across local interfaces.",
+        objectives: [
+          "Inspect raw network frames to identify cleartext credential transmissions",
+          "Audit outbound DNS query rates for anomalies",
+          "Verify firewall boundary enforcement across internal subnets",
+        ],
+        technicalHighlights: [
+          "Python packet parser capturing SYN/ACK handshakes and analyzing packet headers",
+          "Automated rule checks against known insecure ports and legacy protocols",
+          "Real-time console telemetry with colorized severity alerts",
+        ],
+        findingsOrResults: [
+          "Detected lingering legacy cleartext services in test lab subnets",
+          "Validated proper TLS termination on internal load balancers",
+        ],
+        keyTakeaway:
+          "Deep networking knowledge (TCP/IP, DNS, routing) is the bedrock of both offensive exploitation and defensive engineering.",
+      },
+    },
   ],
 
   researchAndWriteups: [
