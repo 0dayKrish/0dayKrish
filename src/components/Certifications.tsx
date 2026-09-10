@@ -104,64 +104,67 @@ export function Certifications() {
             {filteredCerts.map((cert, idx) => {
               const isInProgress = cert.status === "In Progress";
 
-              // Distinct styling for In-Progress (Dark Tactical) vs Completed (Architectural Light)
+              // Distinct styling for In-Progress (Blueprint hatch & dashed border matching box 11-12)
               if (isInProgress) {
                 return (
                   <article
                     key={cert.id}
-                    className="p-5 bg-[#141414] hover:bg-[#1a1a1a] transition-all duration-150 flex flex-col justify-between font-mono group border-b-2 border-b-[#f59e0b]/40 relative overflow-hidden"
+                    className="p-5 bg-[#eae7df] hover:bg-[#e4e0d6] transition-colors flex flex-col justify-between font-mono relative overflow-hidden group"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(45deg, rgba(10,10,10,0.035) 0, rgba(10,10,10,0.035) 10px, transparent 10px, transparent 20px)",
+                    }}
                   >
-                    {/* Subtle top indicator bar */}
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#f59e0b]" />
-
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-2 text-[0.62rem]">
-                        <span className="text-[#f59e0b] font-bold">
-                          {String(idx + 1).padStart(2, "0")} {"//"}
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          <span className="b-tag text-[0.55rem] bg-[#262626] text-[#e4e4e7] border-[#3f3f46]">
-                            {cert.category}
-                          </span>
-                          <span className="inline-flex items-center gap-1.5 text-[0.52rem] font-bold text-[#f59e0b] bg-[#f59e0b]/15 px-1.5 py-0.5 border border-[#f59e0b]/40">
+                    <div className="border-2 border-dashed border-[#0a0a0a]/25 p-4 bg-[#eae7df]/80 h-full flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-2 text-[0.62rem]">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[#059669] font-bold">
+                              {String(idx + 1).padStart(2, "0")} {"//"}
+                            </span>
+                            <span className="b-tag text-[0.55rem] bg-[#dedad1] text-[#0a0a0a] border-[#0a0a0a]/30">
+                              {cert.category}
+                            </span>
+                          </div>
+                          <span className="b-tag text-[0.55rem] bg-[#dedad1] text-[#b45309] border-[#f59e0b]/40 font-bold flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] animate-ping" />
-                            TARGET IN PROGRESS
+                            TARGET
                           </span>
                         </div>
+
+                        <h3 className="text-xs sm:text-sm font-bold text-[#0a0a0a] tracking-tight leading-snug mb-2 group-hover:text-[#059669] transition-colors">
+                          {cert.name}
+                        </h3>
+
+                        <div className="text-[0.68rem] text-[#575757]">
+                          ISSUER: <span className="font-semibold text-[#0a0a0a]">{cert.issuer}</span>
+                        </div>
+
+                        {cert.focus && (
+                          <p className="mt-2.5 text-[0.65rem] text-[#575757] leading-relaxed font-mono border-l-2 border-[#f59e0b]/60 pl-2 bg-[#dedad1]/60 p-1.5">
+                            {cert.focus}
+                          </p>
+                        )}
                       </div>
 
-                      <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight leading-snug mb-2 group-hover:text-[#f59e0b] transition-colors">
-                        {cert.name}
-                      </h3>
+                      <div className="mt-4 pt-3 border-t border-[#0a0a0a]/15 flex flex-col gap-2">
+                        <div className="flex items-center justify-between text-[0.6rem]">
+                          <span className="text-[#b45309] font-bold flex items-center gap-1.5">
+                            <Clock className="w-3 h-3 text-[#b45309] animate-spin" style={{ animationDuration: "6s" }} />
+                            ⚡ IN PROGRESS
+                          </span>
+                          <span className="text-[#78716c] text-[0.55rem]">
+                            [ ACTIVE STUDY ]
+                          </span>
+                        </div>
 
-                      <div className="text-[0.68rem] text-[#a1a1aa]">
-                        ISSUER: <span className="font-semibold text-white">{cert.issuer}</span>
-                      </div>
-
-                      {cert.focus && (
-                        <p className="mt-2.5 text-[0.65rem] text-[#a1a1aa] leading-relaxed font-mono border-l-2 border-[#f59e0b]/40 pl-2">
-                          {cert.focus}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-[#27272a] flex flex-col gap-2">
-                      <div className="flex items-center justify-between text-[0.6rem]">
-                        <span className="text-[#f59e0b] font-bold flex items-center gap-1.5">
-                          <Clock className="w-3 h-3 text-[#f59e0b] animate-spin" style={{ animationDuration: "6s" }} />
-                          ⚡ IN PROGRESS
-                        </span>
-                        <span className="text-[#a1a1aa] text-[0.55rem]">
-                          [ ACTIVE LAB STUDY ]
-                        </span>
-                      </div>
-
-                      <div className="inline-flex items-center justify-between w-full px-2.5 py-1.5 bg-[#262626] hover:bg-[#2e2e2e] border border-[#f59e0b]/40 text-[#f59e0b] font-mono text-[0.6rem] font-bold tracking-wider transition-colors shadow-[2px_2px_0px_#000000]">
-                        <span className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] animate-pulse" />
-                          <span>ACTIVE LABS &amp; EXAM PREP</span>
-                        </span>
-                        <span className="text-[0.55rem] text-[#e4e4e7]">[ CANDIDATE ]</span>
+                        <div className="inline-flex items-center justify-between w-full px-2.5 py-1.5 bg-[#dedad1] border border-[#0a0a0a]/20 text-[#0a0a0a] font-mono text-[0.6rem] font-bold tracking-wider">
+                          <span className="flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] animate-pulse" />
+                            <span>ACTIVE LABS &amp; EXAM PREP</span>
+                          </span>
+                          <span className="text-[0.55rem] text-[#575757]">[ CANDIDATE ]</span>
+                        </div>
                       </div>
                     </div>
                   </article>
