@@ -593,6 +593,15 @@ export const portfolioData: PortfolioData = {
       status: "Certified",
     },
     {
+      id: "aws-cloud-foundations",
+      name: "AWS Academy Graduate - Cloud Foundations",
+      issuer: "Amazon Web Services Training and Certification",
+      category: "Cloud",
+      status: "Certified",
+      verificationUrl: "https://www.credly.com/badges/bc85fe7e-0444-41b8-a4a1-4c34b9315e76/public_url",
+      badgeLabel: "CREDLY VERIFIED",
+    },
+    {
       id: "palo-alto",
       name: "Cybersecurity Foundation Student Certificate",
       issuer: "Palo Alto Networks",

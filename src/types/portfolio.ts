@@ -75,8 +75,17 @@ export interface CertificationItem {
   id: string;
   name: string;
   issuer: string;
-  category: "AI Security" | "Networking" | "Security Fundamentals" | "Software & Automation";
+  category:
+    | "AI Security"
+    | "Networking"
+    | "Security Fundamentals"
+    | "Software & Automation"
+    | "Cloud Security"
+    | "Cloud Fundamentals"
+    | "Cloud";
   status: "Certified" | "Completed" | "Active";
+  verificationUrl?: string;
+  badgeLabel?: string;
 }
 
 export interface PortfolioData {
