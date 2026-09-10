@@ -18,7 +18,14 @@ export interface ProjectItem {
   title: string;
   summary: string;
   impact?: string;
-  category: "Offensive Security" | "AI & LLM Security" | "Web Security" | "Tooling & Automation" | "Network Security";
+  category:
+    | "Offensive Security"
+    | "AI & LLM Security"
+    | "Web Security"
+    | "Tooling & Automation"
+    | "Network Security"
+    | "Cloud & Infrastructure"
+    | "Security Engineering";
   technologies: string[];
   year: string;
   githubUrl?: string;

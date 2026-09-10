@@ -165,131 +165,164 @@ export const portfolioData: PortfolioData = {
 
   featuredProjects: [
     {
-      id: "ai-prompt-eval",
-      title: "LLM Guardrail & Prompt Injection Testbed",
+      id: "wraith-recon",
+      title: "Wraith",
       summary:
-        "An adversarial testing harness designed to evaluate large language model applications against OWASP Top 10 for LLM vulnerabilities, indirect prompt injections, and system prompt leakage.",
+        "A Python CLI reconnaissance framework for bug bounty automation, combining subdomain enumeration, port scanning, and vulnerability fingerprinting into an open-source security research tool.",
       impact:
-        "Simulates multi-turn jailbreak attempts, evaluates guardrail bypass rates, and generates structured security evaluation reports.",
-      category: "AI & LLM Security",
-      technologies: ["Python", "OpenAI / Claude API", "Prompt Injection", "OWASP LLM Top 10", "FastAPI"],
-      year: "2025",
-      githubUrl: "https://github.com/0daykrish",
-      caseStudy: {
-        overview:
-          "With the rapid adoption of agentic LLM systems, prompt injection and jailbreaks represent direct risks to application business logic. This project evaluates model vulnerabilities against automated injection payloads.",
-        objectives: [
-          "Benchmark LLM guardrails against direct and indirect prompt injections",
-          "Test extraction resistance of system instructions and sensitive context",
-          "Automate scoring of model susceptibility using adversarial heuristics",
-        ],
-        technicalHighlights: [
-          "Synthesizes 50+ adversarial jailbreak techniques across token manipulation, character obfuscation, and cognitive deception",
-          "Validates output against strict delimiter enforcement and data sanitization filters",
-          "Generates structured JSON and Markdown audit logs with CVSS-inspired risk vectors",
-        ],
-        findingsOrResults: [
-          "Demonstrated that heuristic guardrails without semantic validation could be bypassed via multi-turn framing",
-          "Implemented defense-in-depth sanitization reducing injection success significantly in test harnesses",
-        ],
-        keyTakeaway:
-          "AI security requires treating natural language user input with the same zero-trust model historically applied to untrusted SQL or shell commands.",
-      },
-    },
-    {
-      id: "web-recon-pipeline",
-      title: "Automated Attack Surface & Reconnaissance Engine",
-      summary:
-        "A modular offensive reconnaissance and asset discovery toolchain for mapping web applications, discovering hidden endpoints, parameter fuzzing, and auditing exposed headers.",
-      impact:
-        "Accelerates penetration testing scope discovery by automating multi-stage subdomain enumeration, technology profiling, and ffuf-based fuzzing workflows.",
+        "Automates multi-stage asset discovery, port scanning, and vulnerability fingerprinting for ethical hackers and security researchers. Published as an open-source framework on GitHub.",
       category: "Offensive Security",
-      technologies: ["Bash", "Python", "ffuf", "Nmap", "Nikto", "Linux"],
-      year: "2024",
+      technologies: [
+        "Python",
+        "CLI",
+        "Subdomain Enumeration",
+        "Port Scanning",
+        "Vulnerability Fingerprinting",
+        "Bug Bounty Automation",
+        "Git/GitHub",
+      ],
+      year: "Nov 2025 – Apr 2026",
       githubUrl: "https://github.com/0daykrish",
       caseStudy: {
         overview:
-          "During web application penetration tests, thorough reconnaissance is critical to uncovering forgotten staging endpoints, misconfigured headers, and exposed administrative interfaces.",
+          "Wraith is a modular Python CLI reconnaissance framework engineered specifically for bug bounty automation and penetration testing scope discovery.",
         objectives: [
-          "Unify asynchronous asset discovery and virtual host detection into a streamlined pipeline",
-          "Automate security header and SSL/TLS cipher audit checks",
-          "Export standardized target profiles for manual Burp Suite deeper inspection",
+          "Automate fast, multi-source subdomain enumeration and target footprinting",
+          "Integrate multi-threaded port scanning with service version and vulnerability fingerprinting",
+          "Develop and publish an extensible open-source CLI framework on GitHub for the security community",
         ],
         technicalHighlights: [
-          "Orchestrates fast endpoint probing using custom wordlists tuned for modern microservices",
-          "Integrated rate-limiting aware fuzzing to minimize detection and avoid service disruption",
-          "Automates baseline scans across target subdomains with consolidated reporting",
+          "Engineered a lightweight, pluggable CLI architecture supporting customizable reconnaissance profiles",
+          "Automated target asset correlation between active DNS discovery and open port identification",
+          "Implemented vulnerability fingerprinting heuristics to quickly surface high-value attack surfaces",
         ],
         findingsOrResults: [
-          "Drastically cut reconnaissance time during security assessments while surfacing shadowed endpoints",
-          "Flagged missing security headers (HSTS, CSP, X-Frame-Options) across testing environments",
+          "Dramatically reduced the time required to map wide-scope external perimeters in bug bounty programs",
+          "Published as an open-source research tool on GitHub with clean documentation",
         ],
         keyTakeaway:
-          "Effective offensive security is built on meticulous reconnaissance—understanding every entry point before initiating targeted exploitation.",
+          "High-yield bug bounty research starts with efficient automation of repetitive discovery, allowing researchers to concentrate manual testing on complex business logic.",
       },
     },
     {
-      id: "api-bola-auditor",
-      title: "API Security & BOLA / IDOR Verification Lab",
+      id: "home-server-infra",
+      title: "Self-Hosted Home Server Infrastructure",
       summary:
-        "A dedicated testing environment and test suite modeling Broken Object Level Authorization (BOLA) and Broken Object Property Level Authorization (BOPLA) scenarios in modern REST APIs.",
+        "A self-hosted server platform on repurposed hardware using containerized services for media, photo management, cloud storage, tracking, monitoring, and infrastructure management.",
       impact:
-        "Provides reproducible test fixtures for testing authorization enforcement across tenant boundaries, UUID vs integer identifiers, and role-based access matrix validation.",
+        "Secured remote access via Cloudflare DNS, Zero Trust controls, and Cloudflare Tunnel, eliminating direct public exposure. Centralized monitoring with Prometheus/Grafana and Wazuh SIEM.",
+      category: "Cloud & Infrastructure",
+      technologies: [
+        "Linux",
+        "Docker / Containers",
+        "Cloudflare Zero Trust",
+        "Cloudflare Tunnel",
+        "Prometheus",
+        "Grafana",
+        "Wazuh SIEM",
+        "Server Hardening",
+      ],
+      year: "May 2026 – Jun 2026",
+      caseStudy: {
+        overview:
+          "Architected and deployed a self-hosted server platform on repurposed hardware, containerizing core services and implementing enterprise-grade Zero Trust remote access and security monitoring.",
+        objectives: [
+          "Repurpose hardware into an isolated, containerized self-hosted platform for media, storage, and infrastructure",
+          "Eliminate direct public exposure of internal services using Cloudflare DNS and Zero Trust Tunnels",
+          "Deploy Prometheus & Grafana for telemetry and integrate Wazuh SIEM for continuous security event auditing",
+        ],
+        technicalHighlights: [
+          "Orchestrated containerized microservices ensuring isolated runtime environments and minimal host privilege",
+          "Enforced Cloudflare Zero Trust identity policies and encrypted tunnels for remote access without port forwarding",
+          "Configured Wazuh agents for continuous log analysis, authentication event auditing, and anomaly detection",
+        ],
+        findingsOrResults: [
+          "Zero open inbound ports on the network boundary, effectively shielding internal infrastructure from unauthorized scans",
+          "Complete real-time operational and security telemetry across authentication logs, system metrics, and anomalous events",
+        ],
+        keyTakeaway:
+          "Adopting a Zero Trust architecture and dedicated SIEM logging transforms consumer or repurposed hardware into a robust, enterprise-hardened environment.",
+      },
+    },
+    {
+      id: "cloud-backup-manager",
+      title: "Cloud Backup Manager",
+      summary:
+        "A real-time Linux backup solution with cloud synchronization, audit logging, automated file-change detection, and instant cloud uploads using rclone and systemd.",
+      impact:
+        "Orchestrates multi-service cloud backup pipelines with automated event-driven file monitoring and structured audit logs for resilient data recovery.",
+      category: "Tooling & Automation",
+      technologies: [
+        "Linux",
+        "Python",
+        "Bash",
+        "rclone",
+        "systemd",
+        "Audit Logging",
+        "File Watchers",
+        "Cloud Storage",
+      ],
+      year: "Aug 2025 – Sep 2025",
+      githubUrl: "https://github.com/0daykrish",
+      caseStudy: {
+        overview:
+          "Cloud Backup Manager is an automated Linux backup and synchronization toolchain utilizing systemd service automation and rclone to provide resilient, continuous file protection.",
+        objectives: [
+          "Implement automated real-time file-change detection on Linux environments",
+          "Orchestrate multi-cloud upload targets through optimized rclone workflows",
+          "Generate comprehensive audit logs to ensure backup verification and traceability",
+        ],
+        technicalHighlights: [
+          "Configured systemd path watchers and services for event-triggered, zero-latency backup dispatch",
+          "Integrated rclone cloud synchronization with bandwidth-efficient differential upload logic",
+          "Built structured audit logging recording upload statuses, file hashes, and execution metrics",
+        ],
+        findingsOrResults: [
+          "Automated disaster-recovery readiness with instant offsite synchronization on file modification",
+          "Eliminated reliance on fragile cron polling in favor of native Linux event-driven architecture",
+        ],
+        keyTakeaway:
+          "Reliable backup engineering demands event-driven automation, verifiable integrity logs, and resilient cloud integration.",
+      },
+    },
+    {
+      id: "email-tracker",
+      title: "Email Tracker",
+      summary:
+        "A Python Flask-based email tracking system using a 1x1 pixel technique to record opens with timestamp, IP, and user-agent data, featuring SMTP handling and a campaign web interface.",
+      impact:
+        "Delivers real-time email engagement forensics, automatic URL detection, and an analytics interface for managing campaigns and inspecting recipient telemetry.",
       category: "Web Security",
-      technologies: ["Python", "REST APIs", "Burp Suite", "OWASP API Top 10", "SQL"],
-      year: "2024",
+      technologies: [
+        "Python",
+        "Flask",
+        "SMTP Handling",
+        "1x1 Tracking Pixel",
+        "IP Telemetry",
+        "User-Agent Analysis",
+        "Web Analytics",
+      ],
+      year: "Sep 2025 – Oct 2025",
       githubUrl: "https://github.com/0daykrish",
       caseStudy: {
         overview:
-          "BOLA remains the #1 risk on the OWASP API Security Top 10. This lab environment simulates real-world SaaS multi-tenancy access-control logic to practice and validate remediation strategies.",
+          "Developed a Python Flask web application that employs 1x1 transparent tracking pixel beacons and SMTP handling to analyze email interaction patterns and client device forensics.",
         objectives: [
-          "Demonstrate exploitation mechanisms of IDOR and BOLA in microservices architectures",
-          "Implement robust user-context validation on every object retrieval query",
-          "Create automated test scripts to detect unauthorized cross-tenant data access",
+          "Deploy an endpoint serving a dynamic 1x1 tracking pixel that logs open timestamps, client IPs, and user agents",
+          "Implement robust SMTP message handling with automatic URL detection and parameter injection",
+          "Build an intuitive web interface for campaign management and real-time interaction analytics",
         ],
         technicalHighlights: [
-          "Simulated multi-tenant user authentication with JWT validation and scoped permissions",
-          "Mapped stateful parameter tampering vectors across nested API routes",
-          "Provided side-by-side vulnerable vs hardened code patterns",
+          "Developed lightweight Flask beacon route with cache-control headers ensuring fresh client requests",
+          "Extracted and parsed client request headers to capture device types, operating systems, and client environments",
+          "Designed dashboard views providing clear visualization of read counts, geographical IP lookups, and timeline metrics",
         ],
         findingsOrResults: [
-          "Proved that frontend UI role checks provide zero security without backend database query ownership verification",
-          "Codified strict object ownership checks into reusable API security patterns",
+          "Accurately gathered forensic engagement telemetry across diverse webmail and desktop client applications",
+          "Demonstrated practical implementation of web beacons and their privacy implications in modern email systems",
         ],
         keyTakeaway:
-          "Never rely on obscure identifiers or client-side trust; object-level access must be explicitly authorized at the database query layer.",
-      },
-    },
-    {
-      id: "network-telemetry-sentinel",
-      title: "Network Packet Analyzer & Telemetry Monitor",
-      summary:
-        "A lightweight network traffic inspection and protocol monitoring script utilizing Wireshark/tshark primitives and Python socket analysis to audit unusual connection patterns.",
-      impact:
-        "Analyzes TCP/UDP connection states, highlights unencrypted plaintext protocols (HTTP/FTP/Telnet), and flags unexpected DNS tunneling heuristics.",
-      category: "Network Security",
-      technologies: ["Python", "Wireshark", "TCP/IP", "Networking", "Linux"],
-      year: "2024",
-      githubUrl: "https://github.com/0daykrish",
-      caseStudy: {
-        overview:
-          "Understanding low-level packet flow is essential for both penetration testing and infrastructure hardening. This tool provides real-time protocol telemetry across local interfaces.",
-        objectives: [
-          "Inspect raw network frames to identify cleartext credential transmissions",
-          "Audit outbound DNS query rates for anomalies",
-          "Verify firewall boundary enforcement across internal subnets",
-        ],
-        technicalHighlights: [
-          "Python packet parser capturing SYN/ACK handshakes and analyzing packet headers",
-          "Automated rule checks against known insecure ports and legacy protocols",
-          "Real-time console telemetry with colorized severity alerts",
-        ],
-        findingsOrResults: [
-          "Detected lingering legacy cleartext services in test lab subnets",
-          "Validated proper TLS termination on internal load balancers",
-        ],
-        keyTakeaway:
-          "Deep networking knowledge (TCP/IP, DNS, routing) is the bedrock of both offensive exploitation and defensive engineering.",
+          "Hands-on telemetry development deepens understanding of web protocols, header parsing, and client-side privacy boundaries.",
       },
     },
   ],
