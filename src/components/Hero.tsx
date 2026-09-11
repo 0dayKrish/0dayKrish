@@ -32,17 +32,17 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center pt-20 pb-12 sm:pt-24 sm:pb-16 overflow-hidden border-b border-[#0a0a0a]"
+      className="relative min-h-[92vh] flex items-center pt-20 pb-12 sm:pt-24 sm:pb-16 overflow-hidden border-b border-[var(--border-color)]"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full">
         {/* Top Status Strip */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-2 border-b border-[#0a0a0a]/15 text-[0.62rem] font-mono tracking-widest text-[#575757]">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-2 border-b border-[var(--border-subtle)] text-[0.62rem] font-mono tracking-widest text-[var(--text-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse-glow inline-block" />
-            <span className="text-[#0a0a0a] font-bold">STATUS: {identity.status}</span>
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-emerald)] animate-pulse-glow inline-block" />
+            <span className="text-[var(--text-primary)] font-bold">STATUS: {identity.status}</span>
           </div>
           <div className="flex items-center gap-4">
-            <span>HANDLE: <span className="text-[#0a0a0a] font-bold">@{identity.handle}</span></span>
+            <span>HANDLE: <span className="text-[var(--text-primary)] font-bold">@{identity.handle}</span></span>
             <span className="hidden md:inline">LOC: {identity.location}</span>
           </div>
         </div>
@@ -52,27 +52,27 @@ export function Hero() {
           {/* Left Hero Content */}
           <div className="flex-1 min-w-0">
             {/* Monospace Identifier */}
-            <div className="inline-flex items-center gap-2 mb-3 border border-[#0a0a0a] bg-[#dedad1] px-2.5 py-1 text-[0.62rem] font-mono tracking-widest text-[#0a0a0a]">
-              <span className="text-[#059669] font-bold">01 // IDENTITY</span>
+            <div className="inline-flex items-center gap-2 mb-3 border border-[var(--border-color)] bg-[var(--bg-subtle)] px-2.5 py-1 text-[0.62rem] font-mono tracking-widest text-[var(--text-primary)]">
+              <span className="text-[var(--accent-emerald)] font-bold">01 // IDENTITY</span>
               <span>SECURITY RESEARCHER &amp; COMMUNITY BUILDER</span>
             </div>
 
             {/* Huge Brutalist Title */}
-            <h1 className="font-mono font-bold leading-none tracking-tight select-none text-[clamp(2.8rem,7.5vw,6.5rem)] text-[#0a0a0a] mb-2">
+            <h1 className="font-mono font-bold leading-none tracking-tight select-none text-[clamp(2.8rem,7.5vw,6.5rem)] text-[var(--text-primary)] mb-2">
               KRISH.
             </h1>
-            <h1 className="font-mono font-bold leading-none tracking-tight select-none text-[clamp(2.8rem,7.5vw,6.5rem)] text-[#0a0a0a] mb-5">
+            <h1 className="font-mono font-bold leading-none tracking-tight select-none text-[clamp(2.8rem,7.5vw,6.5rem)] text-[var(--text-primary)] mb-5">
               SHARMA.
             </h1>
 
             {/* Positioning Subheading */}
-            <div className="font-mono font-bold text-[clamp(1.1rem,2.5vw,1.9rem)] leading-snug tracking-tight text-[#0a0a0a] mb-4">
+            <div className="font-mono font-bold text-[clamp(1.1rem,2.5vw,1.9rem)] leading-snug tracking-tight text-[var(--text-primary)] mb-4">
               CYBERSECURITY RESEARCHER &amp;{" "}
-              <span className="text-[#059669] block sm:inline">COMMUNITY BUILDER.</span>
+              <span className="text-[var(--accent-emerald)] block sm:inline">COMMUNITY BUILDER.</span>
             </div>
 
             {/* Confident, Short Supporting Copy */}
-            <p className="font-mono text-xs sm:text-sm text-[#575757] leading-relaxed tracking-wide mb-6 max-w-xl">
+            <p className="font-mono text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed tracking-wide mb-6 max-w-xl">
               {identity.tagline}
             </p>
 
@@ -82,7 +82,7 @@ export function Hero() {
                 href={identity.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="b-tag hover:border-[#059669]"
+                className="b-tag hover:border-[var(--accent-emerald)]"
               >
                 LINKEDIN: 0daykrish ↗
               </a>
@@ -90,7 +90,7 @@ export function Hero() {
                 href={identity.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="b-tag hover:border-[#059669]"
+                className="b-tag hover:border-[var(--accent-emerald)]"
               >
                 GITHUB: 0daykrish ↗
               </a>
@@ -121,22 +121,22 @@ export function Hero() {
             </div>
 
             {/* Metric Highlights Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#0a0a0a]/20 font-mono">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[var(--border-subtle)] font-mono">
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#0a0a0a] leading-none">FOUNDER</div>
-                <div className="text-[0.58rem] tracking-wider text-[#575757] mt-1">BSIDES VADODARA</div>
+                <div className="text-lg sm:text-xl font-bold text-[var(--text-primary)] leading-none">FOUNDER</div>
+                <div className="text-[0.58rem] tracking-wider text-[var(--text-secondary)] mt-1">BSIDES VADODARA</div>
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#059669] leading-none">MSec-CAIS</div>
-                <div className="text-[0.58rem] tracking-wider text-[#575757] mt-1">AI SECURITY EXPERT</div>
+                <div className="text-lg sm:text-xl font-bold text-[var(--accent-emerald)] leading-none">MSec-CAIS</div>
+                <div className="text-[0.58rem] tracking-wider text-[var(--text-secondary)] mt-1">AI SECURITY EXPERT</div>
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#0a0a0a] leading-none">OFFENSIVE</div>
-                <div className="text-[0.58rem] tracking-wider text-[#575757] mt-1">PENTEST &amp; AUDITING</div>
+                <div className="text-lg sm:text-xl font-bold text-[var(--text-primary)] leading-none">OFFENSIVE</div>
+                <div className="text-[0.58rem] tracking-wider text-[var(--text-secondary)] mt-1">PENTEST &amp; AUDITING</div>
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-bold text-[#0a0a0a] leading-none">WEB &amp; API</div>
-                <div className="text-[0.58rem] tracking-wider text-[#575757] mt-1">RESEARCH &amp; HARDENING</div>
+                <div className="text-lg sm:text-xl font-bold text-[var(--text-primary)] leading-none">WEB &amp; API</div>
+                <div className="text-[0.58rem] tracking-wider text-[var(--text-secondary)] mt-1">RESEARCH &amp; HARDENING</div>
               </div>
             </div>
           </div>
@@ -146,15 +146,15 @@ export function Hero() {
             <CyberRadar />
 
             {/* Uptime Box */}
-            <div className="w-full max-w-[560px] mt-4 border border-[#0a0a0a] bg-[#0a0a0a] text-[#f4f3ef] p-3 font-mono flex items-center justify-between gap-3 shadow-[3px_3px_0px_#059669]">
+            <div className="w-full max-w-[560px] mt-4 border border-[#0a0a0a] dark:border-[var(--border-color)] bg-[#0a0a0a] dark:bg-[var(--bg-surface)] text-[#f4f3ef] dark:text-[var(--text-primary)] p-3 font-mono flex items-center justify-between gap-3 shadow-[3px_3px_0px_var(--accent-emerald)]">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse-glow" />
-                <span className="text-[0.62rem] tracking-widest text-[#a3a3a3] font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[var(--accent-emerald)] animate-pulse-glow" />
+                <span className="text-[0.62rem] tracking-widest text-[#a3a3a3] dark:text-[var(--text-secondary)] font-semibold">
                   COMMUNITY UPTIME
                 </span>
               </div>
-              <div className="text-[0.72rem] font-bold tracking-wider tabular-nums bg-[#171717] px-2.5 py-1 border border-[#262626]">
-                <span className="text-[#059669] mr-1.5">▶</span>
+              <div className="text-[0.72rem] font-bold tracking-wider tabular-nums bg-[#171717] dark:bg-[var(--bg-subtle)] px-2.5 py-1 border border-[#262626] dark:border-[var(--border-color)]">
+                <span className="text-[var(--accent-emerald)] mr-1.5">▶</span>
                 {uptimeStr}
               </div>
             </div>

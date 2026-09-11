@@ -11,17 +11,17 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#dedad1] border-t border-[#0a0a0a] py-10 font-mono text-xs text-[#0a0a0a]">
+    <footer className="bg-[var(--bg-subtle)] border-t border-[var(--border-color)] py-10 font-mono text-xs text-[var(--text-primary)]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-[#0a0a0a]/20">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-[var(--border-subtle)]">
           {/* Brand & Descriptor */}
           <div>
             <div className="font-bold text-sm sm:text-base tracking-wider uppercase flex items-center gap-2 mb-1.5">
               <span>{identity.name}</span>
-              <span className="text-[#059669]">/</span>
-              <span className="text-[#575757]">@{identity.handle}</span>
+              <span className="text-[var(--accent-emerald)]">/</span>
+              <span className="text-[var(--text-secondary)]">@{identity.handle}</span>
             </div>
-            <p className="text-[0.68rem] text-[#575757] max-w-md leading-relaxed">
+            <p className="text-[0.68rem] text-[var(--text-secondary)] max-w-md leading-relaxed">
               Cybersecurity Researcher &amp; Founder of BSides Vadodara. Dedicated to offensive security, AI defense, and community empowerment.
             </p>
           </div>
@@ -64,12 +64,12 @@ export function Footer() {
         </div>
 
         {/* Bottom Legal / Telemetry Line */}
-        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[0.62rem] text-[#575757]">
+        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[0.62rem] text-[var(--text-secondary)]">
           <div>
             © {new Date().getFullYear()} Krish Sharma. Built with Next.js, TypeScript &amp; Tailwind CSS.
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#059669] inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-emerald)] inline-block" />
             <span>SECURITY LEVEL: ZERO-TRUST // ETHICAL PRAXIS</span>
           </div>
         </div>

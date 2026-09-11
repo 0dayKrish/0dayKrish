@@ -23,12 +23,12 @@ export function Research() {
   };
 
   return (
-    <section id="research" className="py-16 sm:py-20 border-b border-[#0a0a0a]" aria-label="Security Research">
+    <section id="research" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Security Research">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <SectionHeader label="SECURITY_RESEARCH" number="005" id="research-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
-          <p className="font-mono text-xs sm:text-[0.8rem] text-[#575757] max-w-xl">
+          <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">
             Vulnerability research, access-control logic flaws, adversarial AI testing, and practical penetration testing methodologies.
           </p>
           <span className="b-tag b-tag-emerald">
@@ -37,34 +37,34 @@ export function Research() {
         </div>
 
         {/* Master Research Log Box */}
-        <div className="border border-[#0a0a0a] bg-[#eae7df] shadow-[4px_4px_0px_#0a0a0a]">
+        <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-[4px_4px_0px_var(--shadow-color)]">
           {/* Header */}
-          <div className="border-b border-[#0a0a0a] px-4 py-2.5 bg-[#dedad1] flex items-center justify-between font-mono text-[0.65rem] tracking-wider text-[#575757]">
+          <div className="border-b border-[var(--border-color)] px-4 py-2.5 bg-[var(--bg-subtle)] flex items-center justify-between font-mono text-[0.65rem] tracking-wider text-[var(--text-secondary)]">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#059669]" />
-              <span className="text-[#0a0a0a] font-bold">RESEARCH_LOG.TXT</span>
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-emerald)]" />
+              <span className="text-[var(--text-primary)] font-bold">RESEARCH_LOG.TXT</span>
             </div>
             <span>{researchAndWriteups.length} DOSSIERS ARCHIVED</span>
           </div>
 
           {/* Research Articles List */}
-          <div className="divide-y divide-[#0a0a0a]">
+          <div className="divide-y divide-[var(--border-color)]">
             {researchAndWriteups.map((item, idx) => (
               <article
                 key={item.id}
-                className="p-5 sm:p-6 bg-[#f4f3ef] hover:bg-white transition-colors"
+                className="p-5 sm:p-6 bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] transition-colors"
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                   {/* Left Column: Scope, Title, Summary */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-[0.62rem]">
-                      <span className="text-[#059669] font-bold">0{idx + 1} {"//"}</span>
-                      <span className="border border-[#0a0a0a] bg-[#dedad1] px-2 py-0.5 font-semibold text-[#0a0a0a]">
+                      <span className="text-[var(--accent-emerald)] font-bold">0{idx + 1} {"//"}</span>
+                      <span className="border border-[var(--border-color)] bg-[var(--bg-subtle)] px-2 py-0.5 font-semibold text-[var(--text-primary)]">
                         {item.category}
                       </span>
-                      <span className="text-[#575757]">SCOPE: {item.scope}</span>
-                      <span className="text-[#a8a29e]">|</span>
-                      <span className="text-[#575757]">{item.date}</span>
+                      <span className="text-[var(--text-secondary)]">SCOPE: {item.scope}</span>
+                      <span className="text-[var(--text-muted)]">|</span>
+                      <span className="text-[var(--text-secondary)]">{item.date}</span>
 
                       {item.reportDetails && (
                         <span
@@ -77,11 +77,11 @@ export function Research() {
                       )}
                     </div>
 
-                    <h3 className="font-mono font-bold text-sm sm:text-base text-[#0a0a0a] tracking-tight leading-snug mb-2">
+                    <h3 className="font-mono font-bold text-sm sm:text-base text-[var(--text-primary)] tracking-tight leading-snug mb-2">
                       {item.title}
                     </h3>
 
-                    <p className="font-mono text-xs text-[#575757] leading-relaxed mb-3 max-w-3xl">
+                    <p className="font-mono text-xs text-[var(--text-secondary)] leading-relaxed mb-3 max-w-3xl">
                       {item.summary}
                     </p>
 
@@ -122,30 +122,30 @@ export function Research() {
           onClick={() => setActiveResearchModal(null)}
         >
           <div
-            className="bg-[#dedad1] border-2 border-[#0a0a0a] shadow-[8px_8px_0px_#0a0a0a] max-w-2xl w-full max-h-[85vh] overflow-y-auto font-mono p-6 sm:p-8"
+            className="bg-[var(--bg-subtle)] border-2 border-[var(--border-color)] shadow-[8px_8px_0px_var(--shadow-color)] max-w-2xl w-full max-h-[85vh] overflow-y-auto font-mono p-6 sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="border-b border-[#0a0a0a] pb-3 mb-5 flex items-center justify-between text-[0.65rem] text-[#575757]">
+            <div className="border-b border-[var(--border-color)] pb-3 mb-5 flex items-center justify-between text-[0.65rem] text-[var(--text-secondary)]">
               <div>
-                <span className="text-[#059669] font-bold">{"// RESEARCH_DOSSIER:"}</span>{" "}
-                <span className="text-[#0a0a0a]">{activeResearchModal.category}</span>
+                <span className="text-[var(--accent-emerald)] font-bold">{"// RESEARCH_DOSSIER:"}</span>{" "}
+                <span className="text-[var(--text-primary)]">{activeResearchModal.category}</span>
               </div>
               <button
                 onClick={() => setActiveResearchModal(null)}
-                className="b-tag cursor-pointer hover:bg-[#0a0a0a] hover:text-white"
+                className="b-tag cursor-pointer hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)]"
                 aria-label="Close dossier"
               >
                 [ CLOSE ✕ ]
               </button>
             </div>
 
-            <h3 id="dossier-title" className="text-lg sm:text-xl font-bold text-[#0a0a0a] mb-2 leading-snug">
+            <h3 id="dossier-title" className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 leading-snug">
               {activeResearchModal.title}
             </h3>
 
             <div className="flex flex-wrap gap-2 mb-4 text-[0.62rem]">
-              <span className="border border-[#0a0a0a] bg-[#f4f3ef] px-2 py-0.5 font-bold">
+              <span className="border border-[var(--border-color)] bg-[var(--bg-card)] px-2 py-0.5 font-bold text-[var(--text-primary)]">
                 SCOPE: {activeResearchModal.scope}
               </span>
               {activeResearchModal.reportDetails && (
@@ -159,46 +159,46 @@ export function Research() {
               )}
             </div>
 
-            <p className="text-xs text-[#575757] leading-relaxed mb-5">
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-5">
               {activeResearchModal.summary}
             </p>
 
             {activeResearchModal.reportDetails && (
-              <div className="border border-[#0a0a0a] bg-[#f4f3ef] p-4 mb-5 space-y-3 text-xs">
+              <div className="border border-[var(--border-color)] bg-[var(--bg-card)] p-4 mb-5 space-y-3 text-xs">
                 <div>
-                  <span className="text-[#059669] font-bold">VULNERABILITY CLASS: </span>
-                  <span className="text-[#0a0a0a]">
+                  <span className="text-[var(--accent-emerald)] font-bold">VULNERABILITY CLASS: </span>
+                  <span className="text-[var(--text-primary)]">
                     {activeResearchModal.reportDetails.vulnerabilityClass}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[#059669] font-bold">TARGET ARCHITECTURE: </span>
-                  <span className="text-[#0a0a0a]">
+                  <span className="text-[var(--accent-emerald)] font-bold">TARGET ARCHITECTURE: </span>
+                  <span className="text-[var(--text-primary)]">
                     {activeResearchModal.reportDetails.targetType}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[#059669] font-bold">ATTACK VECTOR: </span>
-                  <span className="text-[#575757]">
+                  <span className="text-[var(--accent-emerald)] font-bold">ATTACK VECTOR: </span>
+                  <span className="text-[var(--text-secondary)]">
                     {activeResearchModal.reportDetails.attackVector}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[#059669] font-bold">RECOMMENDED REMEDIATION: </span>
-                  <span className="text-[#575757]">
+                  <span className="text-[var(--accent-emerald)] font-bold">RECOMMENDED REMEDIATION: </span>
+                  <span className="text-[var(--text-secondary)]">
                     {activeResearchModal.reportDetails.remediation}
                   </span>
                 </div>
               </div>
             )}
 
-            <div className="p-3 bg-[#eae7df] border border-[#0a0a0a] text-xs text-[#0a0a0a] mb-6">
-              <span className="font-bold text-[#059669]">FINDINGS HIGHLIGHT: </span>
+            <div className="p-3 bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs text-[var(--text-primary)] mb-6">
+              <span className="font-bold text-[var(--accent-emerald)]">FINDINGS HIGHLIGHT: </span>
               {activeResearchModal.findingsHighlight}
             </div>
 
-            <div className="flex justify-between items-center pt-3 border-t border-[#0a0a0a]">
-              <span className="text-[0.6rem] text-[#575757]">
+            <div className="flex justify-between items-center pt-3 border-t border-[var(--border-color)]">
+              <span className="text-[0.6rem] text-[var(--text-secondary)]">
                 RESEARCHER: Krish Sharma (0daykrish)
               </span>
               <button

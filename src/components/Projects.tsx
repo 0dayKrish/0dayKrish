@@ -26,12 +26,12 @@ export function Projects() {
       : featuredProjects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 border-b border-[#0a0a0a]" aria-label="Technical Projects">
+    <section id="projects" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Technical Projects">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <SectionHeader label="TECHNICAL_PROJECTS" number="004" id="projects-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
-          <p className="font-mono text-xs sm:text-[0.8rem] text-[#575757] max-w-xl">
+          <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">
             Reconnaissance frameworks, self-hosted Zero Trust infrastructure, automated cloud backups, email forensics telemetry, and AI security testbeds.
           </p>
           <a
@@ -51,7 +51,7 @@ export function Projects() {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`b-tag cursor-pointer ${
-                selectedCategory === cat ? "bg-[#0a0a0a] text-white border-[#0a0a0a]" : ""
+                selectedCategory === cat ? "bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]" : ""
               }`}
             >
               {cat === "ALL" ? `[ ALL_PROJECTS (${featuredProjects.length}) ]` : cat}
@@ -64,41 +64,41 @@ export function Projects() {
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className="border border-[#0a0a0a] bg-[#eae7df] shadow-[4px_4px_0px_#0a0a0a] hover:shadow-[6px_6px_0px_#059669] hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
+              className="border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-[4px_4px_0px_var(--shadow-color)] hover:shadow-[6px_6px_0px_var(--accent-emerald)] hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 {/* Card Top Window Bar */}
-                <div className="border-b border-[#0a0a0a] px-4 py-2.5 bg-[#dedad1] flex items-center justify-between font-mono text-[0.62rem] tracking-wider text-[#575757]">
+                <div className="border-b border-[var(--border-color)] px-4 py-2.5 bg-[var(--bg-subtle)] flex items-center justify-between font-mono text-[0.62rem] tracking-wider text-[var(--text-secondary)]">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#059669]" />
+                      <span className="w-2 h-2 rounded-full bg-[var(--accent-emerald)]" />
                       <span className="w-2 h-2 rounded-full bg-[#a8a29e]" />
                       <span className="w-2 h-2 rounded-full border border-[#78716c]" />
                     </div>
-                    <span className="text-[#0a0a0a] font-bold uppercase">
+                    <span className="text-[var(--text-primary)] font-bold uppercase">
                       PROJ_{(idx + 1).toString().padStart(2, "0")}.MD
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[#059669] font-bold">{project.category}</span>
-                    <span className="text-[#a8a29e]">|</span>
+                    <span className="text-[var(--accent-emerald)] font-bold">{project.category}</span>
+                    <span className="text-[var(--text-muted)]">|</span>
                     <span>{project.year}</span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="font-mono font-bold text-base sm:text-lg text-[#0a0a0a] tracking-tight leading-snug mb-2.5">
+                  <h3 className="font-mono font-bold text-base sm:text-lg text-[var(--text-primary)] tracking-tight leading-snug mb-2.5">
                     {project.title}
                   </h3>
 
-                  <p className="font-mono text-xs text-[#575757] leading-relaxed mb-4">
+                  <p className="font-mono text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
                     {project.summary}
                   </p>
 
                   {project.impact && (
-                    <div className="font-mono text-[0.7rem] text-[#059669] bg-[#059669]/5 border-l-2 border-[#059669] pl-3 py-1.5 mb-4 leading-relaxed">
-                      <span className="font-bold text-[#0a0a0a]">IMPACT //</span> {project.impact}
+                    <div className="font-mono text-[0.7rem] text-[var(--accent-emerald)] bg-[var(--accent-emerald)]/10 border-l-2 border-[var(--accent-emerald)] pl-3 py-1.5 mb-4 leading-relaxed">
+                      <span className="font-bold text-[var(--text-primary)]">IMPACT //</span> {project.impact}
                     </div>
                   )}
 
@@ -130,7 +130,7 @@ export function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-[#0a0a0a] bg-[#dedad1] hover:bg-[#0a0a0a] hover:text-white transition-colors p-2.5 flex items-center justify-center text-[#0a0a0a]"
+                    className="border border-[var(--border-color)] bg-[var(--bg-subtle)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-colors p-2.5 flex items-center justify-center text-[var(--text-primary)]"
                     aria-label={`View ${project.title} on GitHub`}
                   >
                     <svg
@@ -163,41 +163,41 @@ export function Projects() {
           onClick={() => setActiveModalProject(null)}
         >
           <div
-            className="bg-[#dedad1] border-2 border-[#0a0a0a] shadow-[8px_8px_0px_#0a0a0a] max-w-2xl w-full max-h-[85vh] overflow-y-auto font-mono p-6 sm:p-8"
+            className="bg-[var(--bg-subtle)] border-2 border-[var(--border-color)] shadow-[8px_8px_0px_var(--shadow-color)] max-w-2xl w-full max-h-[85vh] overflow-y-auto font-mono p-6 sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="border-b border-[#0a0a0a] pb-3 mb-5 flex items-center justify-between text-[0.65rem] text-[#575757]">
+            <div className="border-b border-[var(--border-color)] pb-3 mb-5 flex items-center justify-between text-[0.65rem] text-[var(--text-secondary)]">
               <div>
-                <span className="text-[#059669] font-bold">{"// CASE_STUDY_LOG:"}</span>{" "}
-                <span className="text-[#0a0a0a]">{activeModalProject.category}</span>
+                <span className="text-[var(--accent-emerald)] font-bold">{"// CASE_STUDY_LOG:"}</span>{" "}
+                <span className="text-[var(--text-primary)]">{activeModalProject.category}</span>
               </div>
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="b-tag cursor-pointer hover:bg-[#0a0a0a] hover:text-white"
+                className="b-tag cursor-pointer hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)]"
                 aria-label="Close modal"
               >
                 [ CLOSE ✕ ]
               </button>
             </div>
 
-            <h3 id="modal-title" className="text-lg sm:text-xl font-bold text-[#0a0a0a] mb-2 leading-snug">
+            <h3 id="modal-title" className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 leading-snug">
               {activeModalProject.title}
             </h3>
 
-            <p className="text-xs text-[#575757] leading-relaxed mb-6">
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
               {activeModalProject.caseStudy.overview}
             </p>
 
             {/* Objectives */}
             <div className="mb-5">
-              <div className="text-[0.65rem] text-[#059669] font-bold tracking-wider mb-2">
+              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
                 01 // CORE_OBJECTIVES
               </div>
-              <ul className="space-y-1.5 text-xs text-[#0a0a0a]">
+              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
                 {activeModalProject.caseStudy.objectives.map((item, i) => (
                   <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[#059669] font-bold">&gt;</span>
+                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -206,13 +206,13 @@ export function Projects() {
 
             {/* Technical Highlights */}
             <div className="mb-5">
-              <div className="text-[0.65rem] text-[#059669] font-bold tracking-wider mb-2">
+              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
                 02 // TECHNICAL_IMPLEMENTATION
               </div>
-              <ul className="space-y-1.5 text-xs text-[#0a0a0a]">
+              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
                 {activeModalProject.caseStudy.technicalHighlights.map((item, i) => (
                   <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[#059669] font-bold">&gt;</span>
+                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -221,13 +221,13 @@ export function Projects() {
 
             {/* Findings & Results */}
             <div className="mb-5">
-              <div className="text-[0.65rem] text-[#059669] font-bold tracking-wider mb-2">
+              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
                 03 // FINDINGS_&amp;_RESULTS
               </div>
-              <ul className="space-y-1.5 text-xs text-[#0a0a0a]">
+              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
                 {activeModalProject.caseStudy.findingsOrResults.map((item, i) => (
                   <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[#059669] font-bold">&gt;</span>
+                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -235,13 +235,13 @@ export function Projects() {
             </div>
 
             {/* Key Takeaway */}
-            <div className="p-3 bg-[#eae7df] border border-[#0a0a0a] text-xs text-[#0a0a0a] mb-6">
-              <span className="font-bold text-[#059669]">KEY TAKEAWAY: </span>
+            <div className="p-3 bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs text-[var(--text-primary)] mb-6">
+              <span className="font-bold text-[var(--accent-emerald)]">KEY TAKEAWAY: </span>
               {activeModalProject.caseStudy.keyTakeaway}
             </div>
 
-            <div className="flex justify-between items-center pt-3 border-t border-[#0a0a0a]">
-              <span className="text-[0.6rem] text-[#575757]">
+            <div className="flex justify-between items-center pt-3 border-t border-[var(--border-color)]">
+              <span className="text-[0.6rem] text-[var(--text-secondary)]">
                 AUTHOR: Krish Sharma (@0daykrish)
               </span>
               <button

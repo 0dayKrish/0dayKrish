@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
-:root {
+:root,
+[data-theme="light"] {
   --bg-primary: #f4f3ef;
   --bg-surface: #eae7df;
   --bg-subtle: #dedad1;
+  --bg-card: #f4f3ef;
+  --bg-card-hover: #ffffff;
   --text-primary: #0a0a0a;
   --text-secondary: #575757;
+  --text-muted: #78716c;
+  --border-color: #0a0a0a;
+  --border-subtle: rgba(10, 10, 10, 0.2);
+  --border-focus: #059669;
+  --shadow-color: #0a0a0a;
   --accent-emerald: #059669;
   --accent-emerald-glow: rgba(5, 150, 105, 0.15);
-  --border-color: #0a0a0a;
-  --shadow-color: #0a0a0a;
+  --accent-amber: #b45309;
+  --btn-primary-bg: #0a0a0a;
+  --btn-primary-text: #ffffff;
+  --btn-tab-text: #ffffff;
+  --color-scheme: light;
+}
+
+.dark,
+[data-theme="dark"] {
+  --bg-primary: #07130F;
+  --bg-surface: #0c1d18;
+  --bg-subtle: #132b24;
+  --bg-card: #0e221c;
+  --bg-card-hover: #17362d;
+  --text-primary: #e6edea;
+  --text-secondary: #8ca89d;
+  --text-muted: #5a796e;
+  --border-color: #1f4438;
+  --border-subtle: rgba(31, 68, 56, 0.6);
+  --border-focus: #10b981;
+  --shadow-color: #020705;
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-amber: #f59e0b;
+  --btn-primary-bg: #e6edea;
+  --btn-primary-text: #07130F;
+  --btn-tab-text: #07130F;
+  --color-scheme: dark;
 }
 
 @theme {
@@ -18,15 +52,20 @@
   --color-bg-primary: var(--bg-primary);
   --color-bg-surface: var(--bg-surface);
   --color-bg-subtle: var(--bg-subtle);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
   --color-ink-primary: var(--text-primary);
   --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-border-main: var(--border-color);
   --color-sec-emerald: var(--accent-emerald);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #f4f3ef;
-  color: #0a0a0a;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  color-scheme: var(--color-scheme);
 }
 
 body {
@@ -36,6 +75,7 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Neo-brutalist buttons */
@@ -43,8 +83,8 @@ body {
   display: inline-flex;
   align-items: stretch;
   border: 1px solid var(--border-color);
-  background: var(--text-primary);
-  color: #ffffff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
@@ -52,7 +92,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   box-shadow: 2px 2px 0px var(--shadow-color);
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s, color 0.15s, border-color 0.15s;
   user-select: none;
 }
 
@@ -68,7 +108,7 @@ body {
 
 .btn-brutalist .btn-tab {
   background: var(--accent-emerald);
-  color: #ffffff;
+  color: var(--btn-tab-text);
   padding: 8px 12px;
   display: flex;
   align-items: center;
@@ -76,6 +116,7 @@ body {
   border-right: 1px solid var(--border-color);
   font-weight: 700;
   flex-shrink: 0;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .btn-brutalist .btn-body {
@@ -104,7 +145,7 @@ body {
 }
 
 .btn-brutalist-outline:hover {
-  background: #ffffff;
+  background: var(--bg-card-hover);
   color: var(--text-primary);
   box-shadow: 3px 3px 0px var(--border-color);
 }
@@ -122,25 +163,25 @@ body {
   padding: 3px 8px;
   text-transform: uppercase;
   font-weight: 600;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   white-space: nowrap;
 }
 
 .b-tag:hover {
   background: var(--text-primary);
-  color: #ffffff;
+  color: var(--bg-primary);
   border-color: var(--text-primary);
 }
 
 .b-tag-emerald {
   border-color: var(--accent-emerald);
   color: var(--accent-emerald);
-  background: rgba(5, 150, 105, 0.08);
+  background: var(--accent-emerald-glow);
 }
 
 .b-tag-emerald:hover {
   background: var(--accent-emerald);
-  color: #ffffff;
+  color: var(--btn-tab-text);
 }
 
 /* Section Header Dividers */
@@ -221,7 +262,7 @@ body {
 /* Selection */
 ::selection {
   background: var(--text-primary);
-  color: var(--accent-emerald);
+  color: var(--bg-primary);
 }
 
 /* Scrollbar */
@@ -233,7 +274,7 @@ body {
   background: var(--bg-surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: #0a0a0a;
+  background: var(--border-color);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-emerald);

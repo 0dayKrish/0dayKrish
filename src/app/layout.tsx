@@ -16,7 +16,7 @@ const geist = Geist({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f4f3ef",
+  themeColor: "#07130F",
   width: "device-width",
   initialScale: 1,
 };
@@ -84,9 +84,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${spaceMono.variable} ${geist.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-[#f4f3ef] text-[#0a0a0a] selection:bg-[#0a0a0a] selection:text-[#059669]">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.classList.add('dark');document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.classList.add('dark');document.documentElement.setAttribute('data-theme','dark');}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[var(--text-primary)] selection:text-[var(--bg-primary)]">
         {children}
       </body>
     </html>

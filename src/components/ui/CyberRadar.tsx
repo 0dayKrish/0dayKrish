@@ -18,12 +18,12 @@ export function CyberRadar() {
   ];
 
   return (
-    <div className="w-full max-w-[560px] border border-[#0a0a0a] bg-[#dedad1] p-4 sm:p-5 shadow-[4px_4px_0px_#0a0a0a] select-none">
+    <div className="w-full max-w-[560px] border border-[var(--border-color)] bg-[var(--bg-subtle)] p-4 sm:p-5 shadow-[4px_4px_0px_var(--shadow-color)] select-none">
       {/* Top telemetry bar */}
-      <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#0a0a0a] text-[0.62rem] font-mono tracking-wider text-[#575757]">
+      <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--border-color)] text-[0.62rem] font-mono tracking-wider text-[var(--text-secondary)]">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#059669] animate-pulse-glow inline-block" />
-          <span className="text-[#0a0a0a] font-bold">TELEMETRY // SYS.ACTIVE</span>
+          <span className="w-2 h-2 rounded-full bg-[var(--accent-emerald)] animate-pulse-glow inline-block" />
+          <span className="text-[var(--text-primary)] font-bold">TELEMETRY // SYS.ACTIVE</span>
         </div>
         <div className="hidden sm:block text-right tabular-nums">
           LOC: 22.3072°N 73.1812°E [VADODARA]
@@ -41,8 +41,8 @@ export function CyberRadar() {
               onMouseEnter={() => setActiveNode(node.id)}
               className={`text-left b-tag cursor-pointer transition-all duration-150 ${
                 activeNode === node.id
-                  ? "bg-[#0a0a0a] text-[#ffffff] border-[#0a0a0a]"
-                  : "hover:bg-[#eae7df]"
+                  ? "bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]"
+                  : "hover:bg-[var(--bg-surface)]"
               }`}
             >
               <span className="text-[0.6rem] tracking-wider">{node.label}</span>
@@ -59,32 +59,32 @@ export function CyberRadar() {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* Left Connecting Lines */}
-            <path d="M 0 22 L 65 60" stroke="#0a0a0a" strokeWidth="1" strokeDasharray="2 2" />
-            <path d="M 0 60 L 65 60" stroke="#0a0a0a" strokeWidth="1" />
-            <path d="M 0 98 L 65 60" stroke="#0a0a0a" strokeWidth="1" strokeDasharray="2 2" />
+            <path d="M 0 22 L 65 60" stroke="var(--border-color)" strokeWidth="1" strokeDasharray="2 2" />
+            <path d="M 0 60 L 65 60" stroke="var(--border-color)" strokeWidth="1" />
+            <path d="M 0 98 L 65 60" stroke="var(--border-color)" strokeWidth="1" strokeDasharray="2 2" />
 
             {/* Right Connecting Lines */}
-            <path d="M 135 60 L 200 22" stroke="#0a0a0a" strokeWidth="1" strokeDasharray="2 2" />
-            <path d="M 135 60 L 200 60" stroke="#0a0a0a" strokeWidth="1" />
-            <path d="M 135 60 L 200 98" stroke="#0a0a0a" strokeWidth="1" strokeDasharray="2 2" />
+            <path d="M 135 60 L 200 22" stroke="var(--border-color)" strokeWidth="1" strokeDasharray="2 2" />
+            <path d="M 135 60 L 200 60" stroke="var(--border-color)" strokeWidth="1" />
+            <path d="M 135 60 L 200 98" stroke="var(--border-color)" strokeWidth="1" strokeDasharray="2 2" />
 
             {/* Outer Concentric Security Rings */}
-            <circle cx="100" cy="60" r="42" stroke="#0a0a0a" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="100" cy="60" r="28" stroke="#0a0a0a" strokeWidth="1" strokeDasharray="3 3" />
-            <circle cx="100" cy="60" r="14" stroke="#059669" strokeWidth="1.5" />
+            <circle cx="100" cy="60" r="42" stroke="var(--border-color)" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="100" cy="60" r="28" stroke="var(--border-color)" strokeWidth="1" strokeDasharray="3 3" />
+            <circle cx="100" cy="60" r="14" stroke="var(--accent-emerald)" strokeWidth="1.5" />
 
             {/* Crosshairs */}
-            <line x1="100" y1="12" x2="100" y2="108" stroke="#0a0a0a" strokeWidth="1" opacity="0.6" />
-            <line x1="52" y1="60" x2="148" y2="60" stroke="#0a0a0a" strokeWidth="1" opacity="0.6" />
+            <line x1="100" y1="12" x2="100" y2="108" stroke="var(--border-color)" strokeWidth="1" opacity="0.6" />
+            <line x1="52" y1="60" x2="148" y2="60" stroke="var(--border-color)" strokeWidth="1" opacity="0.6" />
 
             {/* Corner Bracket Reticles */}
-            <path d="M 72 32 L 68 32 L 68 36" stroke="#0a0a0a" strokeWidth="1.2" />
-            <path d="M 128 32 L 132 32 L 132 36" stroke="#0a0a0a" strokeWidth="1.2" />
-            <path d="M 72 88 L 68 88 L 68 84" stroke="#0a0a0a" strokeWidth="1.2" />
-            <path d="M 128 88 L 132 88 L 132 84" stroke="#0a0a0a" strokeWidth="1.2" />
+            <path d="M 72 32 L 68 32 L 68 36" stroke="var(--border-color)" strokeWidth="1.2" />
+            <path d="M 128 32 L 132 32 L 132 36" stroke="var(--border-color)" strokeWidth="1.2" />
+            <path d="M 72 88 L 68 88 L 68 84" stroke="var(--border-color)" strokeWidth="1.2" />
+            <path d="M 128 88 L 132 88 L 132 84" stroke="var(--border-color)" strokeWidth="1.2" />
 
             {/* Center Blip */}
-            <circle cx="100" cy="60" r="3.5" fill="#059669" />
+            <circle cx="100" cy="60" r="3.5" fill="var(--accent-emerald)" />
           </svg>
         </div>
 
@@ -97,8 +97,8 @@ export function CyberRadar() {
               onMouseEnter={() => setActiveNode(node.id)}
               className={`text-right b-tag cursor-pointer transition-all duration-150 ${
                 activeNode === node.id
-                  ? "bg-[#0a0a0a] text-[#ffffff] border-[#0a0a0a]"
-                  : "hover:bg-[#eae7df]"
+                  ? "bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]"
+                  : "hover:bg-[var(--bg-surface)]"
               }`}
             >
               <span className="text-[0.6rem] tracking-wider">{node.label}</span>
@@ -108,8 +108,8 @@ export function CyberRadar() {
       </div>
 
       {/* Bottom status readout */}
-      <div className="mt-3 pt-2.5 border-t border-[#0a0a0a] flex items-center justify-between text-[0.58rem] font-mono tracking-widest text-[#575757]">
-        <span className="text-[#059669] font-bold">
+      <div className="mt-3 pt-2.5 border-t border-[var(--border-color)] flex items-center justify-between text-[0.58rem] font-mono tracking-widest text-[var(--text-secondary)]">
+        <span className="text-[var(--accent-emerald)] font-bold">
           {activeNode ? `// INSPECTING: ${activeNode.toUpperCase()}` : "// MODE: ADVERSARIAL_SIMULATION"}
         </span>
         <span className="tabular-nums">OWASP_LLM // MITRE_ATT&CK</span>
