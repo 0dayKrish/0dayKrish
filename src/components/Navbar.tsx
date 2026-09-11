@@ -23,14 +23,10 @@ export function Navbar() {
 
   const navItems = [
     { label: "ABOUT", href: "#about" },
-    { label: "NOW", href: "#currently" },
-    { label: "SURFACE", href: "#attack-surface" },
-    { label: "SKILLS", href: "#skills" },
-    { label: "PROCESS", href: "#methodology" },
     { label: "PROJECTS", href: "#projects" },
+    { label: "CREDENTIALS", href: "#credentials" },
     { label: "RESEARCH", href: "#research" },
     { label: "BSIDES", href: "#bsides" },
-    { label: "CREDS", href: "#credentials" },
     { label: "CONTACT", href: "#contact" },
   ];
 
