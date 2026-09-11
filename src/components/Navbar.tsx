@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import { Search } from "lucide-react";
+import { Search, FileText } from "lucide-react";
 
 const emptySubscribe = () => () => {};
 
@@ -23,10 +23,15 @@ export function Navbar() {
 
   const navItems = [
     { label: "ABOUT", href: "#about" },
+    { label: "NOW", href: "#currently" },
+    { label: "SURFACE", href: "#attack-surface" },
+    { label: "SKILLS", href: "#skills" },
+    { label: "PROCESS", href: "#methodology" },
+    { label: "HUNT", href: "#vulnerability-hunt" },
     { label: "PROJECTS", href: "#projects" },
-    { label: "CREDENTIALS", href: "#credentials" },
     { label: "RESEARCH", href: "#research" },
     { label: "BSIDES", href: "#bsides" },
+    { label: "CREDS", href: "#credentials" },
     { label: "CONTACT", href: "#contact" },
   ];
 
@@ -41,6 +46,7 @@ export function Navbar() {
         "attack-surface",
         "skills",
         "methodology",
+        "vulnerability-hunt",
         "projects",
         "research",
         "bsides",
@@ -68,6 +74,10 @@ export function Navbar() {
 
   const openCommandPalette = () => {
     window.dispatchEvent(new CustomEvent("open-command-palette"));
+  };
+
+  const openSecurityDossier = () => {
+    window.dispatchEvent(new CustomEvent("open-security-dossier"));
   };
 
   return (
@@ -113,8 +123,20 @@ export function Navbar() {
               })}
             </div>
 
-            {/* Right Action Cluster: ⌘K + ThemeToggle + Contact */}
+            {/* Right Action Cluster: Dossier + ⌘K + ThemeToggle + Contact */}
             <div className="hidden sm:flex items-center gap-2 flex-shrink-0">
+              {/* Security Dossier Trigger */}
+              <button
+                type="button"
+                onClick={openSecurityDossier}
+                aria-label="Open Security Dossier"
+                title="Open Security Dossier"
+                className="inline-flex items-center gap-1.5 px-2 py-1.5 border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] font-mono text-[0.62rem] font-bold tracking-wider uppercase transition-colors cursor-pointer select-none active:translate-y-0.5"
+              >
+                <FileText className="w-3 h-3 text-[var(--accent-emerald)]" />
+                <span>DOSSIER</span>
+              </button>
+
               {/* Command Palette Trigger */}
               <button
                 type="button"
@@ -141,8 +163,16 @@ export function Navbar() {
               </a>
             </div>
 
-            {/* Mobile Actions: ⌘K + Theme Toggle + Menu Button */}
+            {/* Mobile Actions: Dossier + ⌘K + Theme Toggle + Menu Button */}
             <div className="flex sm:hidden items-center gap-1.5">
+              <button
+                type="button"
+                onClick={openSecurityDossier}
+                aria-label="Open Security Dossier"
+                className="p-1.5 border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-primary)] active:translate-y-0.5"
+              >
+                <FileText className="w-3.5 h-3.5 text-[var(--accent-emerald)]" />
+              </button>
               <button
                 type="button"
                 onClick={openCommandPalette}
@@ -188,6 +218,26 @@ export function Navbar() {
                 className="text-[var(--text-primary)] font-bold text-xs"
               >
                 ✕
+              </button>
+            </div>
+
+            {/* Security Dossier Trigger inside Drawer */}
+            <div className="mb-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openSecurityDossier();
+                }}
+                className="w-full flex items-center justify-between px-3 py-2 border border-[var(--accent-emerald)] bg-[var(--bg-surface)] text-[var(--text-primary)] font-mono text-xs font-bold uppercase cursor-pointer hover:bg-[var(--accent-emerald)] hover:text-white transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <FileText className="w-3.5 h-3.5 text-[var(--accent-emerald)]" />
+                  <span>SECURITY DOSSIER</span>
+                </span>
+                <span className="text-[0.6rem] text-[var(--accent-emerald)] font-bold">
+                  [01-07]
+                </span>
               </button>
             </div>
 

@@ -193,19 +193,28 @@ export function SecurityMethodology() {
           ))}
         </div>
 
-        {/* Methodology to Research Cross-Link Callout */}
+        {/* Methodology to Lab and Research Cross-Link Callout */}
         <div className="mt-6 p-4 border border-[var(--border-color)] bg-[var(--bg-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono">
           <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
             <span className="text-[var(--accent-emerald)] font-bold">▶</span>
-            <span>Applied testing methodology across verified research writeups and vulnerability reports.</span>
+            <span>Test your practical instincts in the interactive scenario lab or explore technical writeups.</span>
           </div>
-          <a
-            href="#research"
-            className="btn-brutalist flex-shrink-0"
-          >
-            <span className="btn-tab">↓</span>
-            <span className="btn-body text-[0.62rem]">EXPLORE RESEARCH DOSSIERS</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-2 flex-shrink-0">
+            <a
+              href="#vulnerability-hunt"
+              className="btn-brutalist border-2 border-[var(--accent-emerald)] shadow-[2px_2px_0px_var(--accent-emerald)]"
+            >
+              <span className="btn-tab bg-[var(--accent-emerald)] text-white font-bold">⚡</span>
+              <span className="btn-body text-[0.62rem] text-[var(--accent-emerald)] font-bold">PRACTICE IN VULN HUNT</span>
+            </a>
+            <a
+              href="#research"
+              className="btn-brutalist btn-brutalist-outline"
+            >
+              <span className="btn-tab">↓</span>
+              <span className="btn-body text-[0.62rem]">RESEARCH DOSSIERS</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

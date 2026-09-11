@@ -45,7 +45,13 @@ export function About() {
                   <span className="text-[var(--text-primary)] font-bold">ETHOS:</span>
                   <span className="text-[var(--text-secondary)]">RESPONSIBLE DISCLOSURE &amp; ADVERSARIAL RIGOR</span>
                 </div>
-                <span className="text-[var(--accent-emerald)] font-bold">[ VERIFIED PRAXIS ]</span>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-security-dossier"))}
+                  className="text-[var(--accent-emerald)] hover:underline font-bold cursor-pointer inline-flex items-center gap-1"
+                >
+                  <span>[ OPEN SECURITY DOSSIER → ]</span>
+                </button>
               </div>
             </div>
           </div>

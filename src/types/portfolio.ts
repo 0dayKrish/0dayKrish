@@ -133,6 +133,30 @@ export interface CertificationItem {
   focus?: string;
 }
 
+export interface VulnerabilityScenario {
+  id: string;
+  scenarioIndex: string;
+  title: string;
+  category: string;
+  cwe?: string;
+  targetSystem: string;
+  context: string;
+  requestSnippet: string;
+  responseSnippet: string;
+  question: string;
+  options: string[];
+  correctIndex: number;
+  hint: string;
+  explanation: {
+    mechanism: string;
+    securityPropertyBroken: string;
+    adversarialImpact: string;
+    remediation: string;
+  };
+  relatedSectionHref?: string;
+  relatedSectionLabel?: string;
+}
+
 export interface PortfolioData {
   identity: {
     name: string;
@@ -158,6 +182,7 @@ export interface PortfolioData {
   currentlyFocus: CurrentlyFocusItem[];
   attackSurfaceDomains: AttackSurfaceDomain[];
   securityMethodology: SecurityMethodologyStep[];
+  vulnerabilityScenarios?: VulnerabilityScenario[];
   featuredProjects: ProjectItem[];
   researchAndWriteups: ResearchItem[];
   experience: ExperienceItem[];

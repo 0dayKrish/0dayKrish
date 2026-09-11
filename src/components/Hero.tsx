@@ -106,17 +106,26 @@ export function Hero() {
 
             {/* Primary Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 mb-8">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("open-security-dossier"))}
+                className="btn-brutalist border-2 border-[var(--accent-emerald)] shadow-[3px_3px_0px_var(--accent-emerald)] cursor-pointer"
+                title="Open Krish Sharma's Security Dossier"
+              >
+                <span className="btn-tab bg-[var(--accent-emerald)] text-white font-bold">🗎</span>
+                <span className="btn-body text-[var(--accent-emerald)] font-bold">OPEN DOSSIER</span>
+              </button>
               <a href="#projects" className="btn-brutalist">
                 <span className="btn-tab">→</span>
                 <span className="btn-body">VIEW WORK</span>
               </a>
+              <a href="#vulnerability-hunt" className="btn-brutalist btn-brutalist-outline">
+                <span className="btn-tab">⚡</span>
+                <span className="btn-body">VULN HUNT</span>
+              </a>
               <a href="#research" className="btn-brutalist btn-brutalist-outline">
                 <span className="btn-tab">↓</span>
-                <span className="btn-body">SECURITY RESEARCH</span>
-              </a>
-              <a href="#contact" className="btn-brutalist btn-brutalist-outline">
-                <span className="btn-tab">✉</span>
-                <span className="btn-body">GET IN TOUCH</span>
+                <span className="btn-body">RESEARCH</span>
               </a>
             </div>
 

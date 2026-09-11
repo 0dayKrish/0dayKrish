@@ -414,6 +414,20 @@ export function AttackSurface() {
                     </div>
                   </div>
                 )}
+
+                {/* Cross-Link to Vulnerability Hunt */}
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-[var(--border-subtle)] text-[0.62rem]">
+                  <span className="text-[var(--text-muted)]">
+                    Audit simulated attack scenarios matching this domain:
+                  </span>
+                  <a
+                    href="#vulnerability-hunt"
+                    className="text-[var(--accent-emerald)] font-bold hover:underline inline-flex items-center gap-1 uppercase no-underline"
+                  >
+                    <span>PRACTICE IN VULNERABILITY HUNT</span>
+                    <span>→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -200,11 +200,33 @@ export function CommandPalette() {
       keywords: ["methodology", "recon", "map", "test", "process"],
     },
     {
+      id: "nav-vulnerability-hunt",
+      category: "NAVIGATION",
+      title: "Go to Vulnerability Hunt",
+      subtitle: "Interactive web application auditing lab & scenarios",
+      shortcut: "06",
+      action: () => navigateTo("#vulnerability-hunt"),
+      keywords: [
+        "vulnerability",
+        "hunt",
+        "challenge",
+        "scenario",
+        "idor",
+        "ssrf",
+        "sqli",
+        "jwt",
+        "rag",
+        "prompt injection",
+        "quiz",
+        "lab",
+      ],
+    },
+    {
       id: "nav-projects",
       category: "NAVIGATION",
       title: "Go to Projects",
       subtitle: "Technical builds and toolchains",
-      shortcut: "06",
+      shortcut: "07",
       action: () => navigateTo("#projects"),
       keywords: ["projects", "builds", "wraith", "code"],
     },
@@ -264,7 +286,53 @@ export function CommandPalette() {
       keywords: ["project", p.title.toLowerCase(), p.category.toLowerCase(), ...p.technologies.map(t => t.toLowerCase())],
     })),
 
-    // System Actions
+    // System Actions & Interactive Workstations
+    {
+      id: "sys-dossier",
+      category: "SYSTEM",
+      title: "Open Security Dossier",
+      subtitle: "Structured declassified intelligence brief & practitioner archive",
+      shortcut: "DOSSIER",
+      action: () => {
+        closePalette();
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent("open-security-dossier"));
+        }, 100);
+      },
+      keywords: [
+        "dossier",
+        "security dossier",
+        "brief",
+        "intelligence",
+        "profile",
+        "krish",
+        "0daykrish",
+        "subject",
+        "archive",
+      ],
+    },
+    {
+      id: "sys-vuln-hunt",
+      category: "SYSTEM",
+      title: "Launch Vulnerability Hunt Challenge",
+      subtitle: "Audit simulated HTTP attack scenarios (BOLA, SSRF, SQLi, JWT, AI)",
+      shortcut: "HUNT",
+      action: () => navigateTo("#vulnerability-hunt"),
+      keywords: [
+        "vulnerability",
+        "hunt",
+        "challenge",
+        "quiz",
+        "scenarios",
+        "idor",
+        "ssrf",
+        "sqli",
+        "jwt",
+        "rag",
+        "test",
+        "lab",
+      ],
+    },
     {
       id: "sys-theme",
       category: "SYSTEM",
