@@ -4,16 +4,22 @@ import React, { useState, useEffect } from "react";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { Search } from "lucide-react";
 
+const emptySubscribe = () => () => {};
+
+function getIsMac() {
+  if (typeof navigator === "undefined") return false;
+  return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
+}
+
+function getServerIsMac() {
+  return false;
+}
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const [isMac] = useState(() => {
-    if (typeof navigator !== "undefined") {
-      return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
-    }
-    return true;
-  });
+  const isMac = React.useSyncExternalStore(emptySubscribe, getIsMac, getServerIsMac);
 
   const navItems = [
     { label: "ABOUT", href: "#about" },
@@ -117,13 +123,16 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={openCommandPalette}
-                aria-label={`Open command palette (${isMac ? "⌘K" : "Ctrl+K"})`}
-                title={`Open command palette (${isMac ? "⌘K" : "Ctrl+K"})`}
+                aria-label="Open command palette (⌘K / Ctrl+K)"
+                title="Open command palette (⌘K / Ctrl+K)"
                 className="inline-flex items-center gap-1.5 px-2 py-1.5 border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] font-mono text-[0.62rem] font-bold tracking-wider uppercase transition-colors cursor-pointer select-none active:translate-y-0.5"
               >
                 <Search className="w-3 h-3 text-[var(--accent-emerald)]" />
                 <span className="text-[var(--text-secondary)]">SEARCH</span>
-                <span className="px-1 py-0.2 border border-[var(--border-subtle)] bg-[var(--bg-subtle)] text-[0.55rem] text-[var(--accent-emerald)]">
+                <span
+                  suppressHydrationWarning
+                  className="px-1 py-0.2 border border-[var(--border-subtle)] bg-[var(--bg-subtle)] text-[0.55rem] text-[var(--accent-emerald)]"
+                >
                   {isMac ? "⌘K" : "CTRL+K"}
                 </span>
               </button>
@@ -200,7 +209,10 @@ export function Navbar() {
                   <Search className="w-3.5 h-3.5 text-[var(--accent-emerald)]" />
                   <span>COMMAND PALETTE</span>
                 </span>
-                <span className="text-[0.6rem] text-[var(--accent-emerald)]">
+                <span
+                  suppressHydrationWarning
+                  className="text-[0.6rem] text-[var(--accent-emerald)]"
+                >
                   {isMac ? "⌘K" : "CTRL+K"}
                 </span>
               </button>

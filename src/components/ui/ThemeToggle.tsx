@@ -59,6 +59,7 @@ export function ThemeToggle({ className = "", showLabel = false }: ThemeTogglePr
     <button
       type="button"
       onClick={toggleTheme}
+      suppressHydrationWarning
       aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       className={`inline-flex items-center gap-2 px-2.5 py-1.5 border border-[var(--border-color)] bg-[var(--bg-subtle)] text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] font-mono text-[0.62rem] font-bold tracking-wider uppercase transition-colors cursor-pointer select-none active:translate-y-0.5 ${className}`}

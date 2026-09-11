@@ -1,28 +1,6 @@
 @import "tailwindcss";
 
 :root,
-[data-theme="light"] {
-  --bg-primary: #f4f3ef;
-  --bg-surface: #eae7df;
-  --bg-subtle: #dedad1;
-  --bg-card: #f4f3ef;
-  --bg-card-hover: #ffffff;
-  --text-primary: #0a0a0a;
-  --text-secondary: #575757;
-  --text-muted: #78716c;
-  --border-color: #0a0a0a;
-  --border-subtle: rgba(10, 10, 10, 0.2);
-  --border-focus: #059669;
-  --shadow-color: #0a0a0a;
-  --accent-emerald: #059669;
-  --accent-emerald-glow: rgba(5, 150, 105, 0.15);
-  --accent-amber: #b45309;
-  --btn-primary-bg: #0a0a0a;
-  --btn-primary-text: #ffffff;
-  --btn-tab-text: #ffffff;
-  --color-scheme: light;
-}
-
 .dark,
 [data-theme="dark"] {
   --bg-primary: #07130F;
@@ -44,6 +22,29 @@
   --btn-primary-text: #07130F;
   --btn-tab-text: #07130F;
   --color-scheme: dark;
+}
+
+.light,
+[data-theme="light"] {
+  --bg-primary: #f4f3ef;
+  --bg-surface: #eae7df;
+  --bg-subtle: #dedad1;
+  --bg-card: #f4f3ef;
+  --bg-card-hover: #ffffff;
+  --text-primary: #0a0a0a;
+  --text-secondary: #575757;
+  --text-muted: #78716c;
+  --border-color: #0a0a0a;
+  --border-subtle: rgba(10, 10, 10, 0.2);
+  --border-focus: #059669;
+  --shadow-color: #0a0a0a;
+  --accent-emerald: #059669;
+  --accent-emerald-glow: rgba(5, 150, 105, 0.15);
+  --accent-amber: #b45309;
+  --btn-primary-bg: #0a0a0a;
+  --btn-primary-text: #ffffff;
+  --btn-tab-text: #ffffff;
+  --color-scheme: light;
 }
 
 @theme {

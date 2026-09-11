@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Mono, Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -84,17 +85,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
       suppressHydrationWarning
-      className={`${spaceMono.variable} ${geist.variable} scroll-smooth antialiased`}
+      className={`dark ${spaceMono.variable} ${geist.variable} scroll-smooth antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.classList.add('dark');document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.classList.add('dark');document.documentElement.setAttribute('data-theme','dark');}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[var(--text-primary)] selection:text-[var(--bg-primary)]">
+        <Script
+          id="theme-initializer"
+          strategy="beforeInteractive"
+          src="/theme-init.js"
+        />
         {children}
       </body>
     </html>

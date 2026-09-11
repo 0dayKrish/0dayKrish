@@ -19,17 +19,23 @@ interface CommandItem {
   keywords?: string[];
 }
 
+const emptySubscribe = () => () => {};
+
+function getIsMac() {
+  if (typeof navigator === "undefined") return false;
+  return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
+}
+
+function getServerIsMac() {
+  return false;
+}
+
 export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copiedText, setCopiedText] = useState<string | null>(null);
-  const [isMac] = useState(() => {
-    if (typeof navigator !== "undefined") {
-      return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
-    }
-    return true;
-  });
+  const isMac = React.useSyncExternalStore(emptySubscribe, getIsMac, getServerIsMac);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -512,7 +518,10 @@ export function CommandPalette() {
                 <span>[↵] SELECT</span>
                 <span>[ESC] CLOSE</span>
               </div>
-              <div className="text-[var(--accent-emerald)] font-bold">
+              <div
+                suppressHydrationWarning
+                className="text-[var(--accent-emerald)] font-bold"
+              >
                 PRESS {isMac ? "⌘K" : "CTRL+K"} ANYTIME
               </div>
             </div>
