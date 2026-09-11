@@ -31,7 +31,7 @@ export function Certifications() {
       aria-label="Certifications and Training"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="CREDENTIALS_&_TRAINING" number="006" id="credentials-heading" />
+        <SectionHeader label="CREDENTIALS_&_TRAINING" number="009" id="credentials-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">

@@ -30,13 +30,55 @@ export interface ProjectItem {
   year: string;
   githubUrl?: string;
   liveUrl?: string;
-  caseStudy?: {
-    overview: string;
-    objectives: string[];
-    technicalHighlights: string[];
-    findingsOrResults: string[];
-    keyTakeaway: string;
-  };
+  caseStudy?: ProjectCaseStudy;
+}
+
+export interface ProjectCaseStudy {
+  overview: string;
+  problem?: string;
+  approach?: string;
+  objectives: string[];
+  technicalHighlights: string[];
+  securityDetails?: string;
+  findingsOrResults: string[];
+  keyTakeaway: string;
+}
+
+export interface AttackSurfaceDomain {
+  id: string;
+  label: string;
+  category: string;
+  shortDescription: string;
+  technologies: string[];
+  relatedProjectIds: string[];
+  relatedResearchIds: string[];
+  sectionLink: string;
+  position: { x: number; y: number }; // Percentage coordinates for desktop SVG graph
+}
+
+export interface SecurityMethodologyStep {
+  step: string;
+  title: string;
+  phase: string;
+  summary: string;
+  description: string;
+  techniques: string[];
+  deliverable: string;
+  icon: "Radar" | "Network" | "Terminal" | "ShieldAlert" | "FileText" | "CheckCircle2";
+}
+
+export interface CurrentlyFocusItem {
+  id: string;
+  index: string;
+  category: "RESEARCH" | "BUILDING" | "WORKING ON" | "EXPLORING";
+  title: string;
+  subtitle: string;
+  description: string;
+  status: string;
+  tags: string[];
+  linkHref: string;
+  linkLabel: string;
+  isExternal?: boolean;
 }
 
 export interface ResearchItem {
@@ -113,6 +155,9 @@ export interface PortfolioData {
     }[];
   };
   skillCategories: SkillCategory[];
+  currentlyFocus: CurrentlyFocusItem[];
+  attackSurfaceDomains: AttackSurfaceDomain[];
+  securityMethodology: SecurityMethodologyStep[];
   featuredProjects: ProjectItem[];
   researchAndWriteups: ResearchItem[];
   experience: ExperienceItem[];

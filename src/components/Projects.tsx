@@ -1,13 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
 import { ProjectItem } from "@/types/portfolio";
 import { SectionHeader } from "./ui/SectionHeader";
+import { ProjectDrawer } from "./ui/ProjectDrawer";
+import { ArrowUpRight } from "lucide-react";
 
 export function Projects() {
   const { featuredProjects } = portfolioData;
-  const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [selectedDrawerProject, setSelectedDrawerProject] = useState<ProjectItem | null>(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash.startsWith("#project-")) {
+        const projId = hash.replace("#project-", "");
+        return featuredProjects.find((p) => p.id === projId) || null;
+      }
+    }
+    return null;
+  });
   const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
 
   const categories = [
@@ -25,10 +36,26 @@ export function Projects() {
       ? featuredProjects
       : featuredProjects.filter((p) => p.category === selectedCategory);
 
+  // Cross-feature listener: allows Attack Surface, Command Palette, or Currently section to open drawer
+  useEffect(() => {
+    const handleOpenDrawer = (e: Event) => {
+      const customEvent = e as CustomEvent<{ projectId: string }>;
+      if (customEvent.detail?.projectId) {
+        const proj = featuredProjects.find((p) => p.id === customEvent.detail.projectId);
+        if (proj) {
+          setSelectedDrawerProject(proj);
+        }
+      }
+    };
+
+    window.addEventListener("open-project-drawer", handleOpenDrawer);
+    return () => window.removeEventListener("open-project-drawer", handleOpenDrawer);
+  }, [featuredProjects]);
+
   return (
     <section id="projects" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Technical Projects">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="TECHNICAL_PROJECTS" number="004" id="projects-heading" />
+        <SectionHeader label="TECHNICAL_PROJECTS" number="006" id="projects-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">
@@ -88,9 +115,22 @@ export function Projects() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="font-mono font-bold text-base sm:text-lg text-[var(--text-primary)] tracking-tight leading-snug mb-2.5">
-                    {project.title}
-                  </h3>
+                  <div className="flex items-start justify-between gap-3 mb-2.5">
+                    <h3
+                      onClick={() => setSelectedDrawerProject(project)}
+                      className="font-mono font-bold text-base sm:text-lg text-[var(--text-primary)] tracking-tight leading-snug hover:text-[var(--accent-emerald)] transition-colors cursor-pointer"
+                    >
+                      {project.title}
+                    </h3>
+                    <button
+                      onClick={() => setSelectedDrawerProject(project)}
+                      className="text-[var(--text-muted)] hover:text-[var(--accent-emerald)] transition-colors p-1"
+                      title="Open Case Study Dossier"
+                      aria-label={`Open Case Study for ${project.title}`}
+                    >
+                      <ArrowUpRight className="w-4 h-4" />
+                    </button>
+                  </div>
 
                   <p className="font-mono text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
                     {project.summary}
@@ -115,15 +155,15 @@ export function Projects() {
 
               {/* Bottom Actions */}
               <div className="p-6 pt-0 flex items-center gap-3">
-                {project.caseStudy && (
-                  <button
-                    onClick={() => setActiveModalProject(project)}
-                    className="btn-brutalist flex-1 cursor-pointer"
-                  >
-                    <span className="btn-tab">→</span>
-                    <span className="btn-body text-[0.62rem]">CASE STUDY</span>
-                  </button>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setSelectedDrawerProject(project)}
+                  className="btn-brutalist flex-1 cursor-pointer"
+                  aria-label={`View full case study for ${project.title}`}
+                >
+                  <span className="btn-tab">→</span>
+                  <span className="btn-body text-[0.62rem]">VIEW CASE STUDY</span>
+                </button>
 
                 {project.githubUrl && (
                   <a
@@ -131,7 +171,7 @@ export function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-[var(--border-color)] bg-[var(--bg-subtle)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-colors p-2.5 flex items-center justify-center text-[var(--text-primary)]"
-                    aria-label={`View ${project.title} on GitHub`}
+                    aria-label={`View ${project.title} source code on GitHub`}
                   >
                     <svg
                       className="w-4 h-4"
@@ -153,108 +193,11 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Case Study Modal */}
-      {activeModalProject && activeModalProject.caseStudy && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
-          onClick={() => setActiveModalProject(null)}
-        >
-          <div
-            className="bg-[var(--bg-subtle)] border-2 border-[var(--border-color)] shadow-[8px_8px_0px_var(--shadow-color)] max-w-2xl w-full max-h-[85vh] overflow-y-auto font-mono p-6 sm:p-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="border-b border-[var(--border-color)] pb-3 mb-5 flex items-center justify-between text-[0.65rem] text-[var(--text-secondary)]">
-              <div>
-                <span className="text-[var(--accent-emerald)] font-bold">{"// CASE_STUDY_LOG:"}</span>{" "}
-                <span className="text-[var(--text-primary)]">{activeModalProject.category}</span>
-              </div>
-              <button
-                onClick={() => setActiveModalProject(null)}
-                className="b-tag cursor-pointer hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)]"
-                aria-label="Close modal"
-              >
-                [ CLOSE ✕ ]
-              </button>
-            </div>
-
-            <h3 id="modal-title" className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 leading-snug">
-              {activeModalProject.title}
-            </h3>
-
-            <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-6">
-              {activeModalProject.caseStudy.overview}
-            </p>
-
-            {/* Objectives */}
-            <div className="mb-5">
-              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
-                01 // CORE_OBJECTIVES
-              </div>
-              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
-                {activeModalProject.caseStudy.objectives.map((item, i) => (
-                  <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Technical Highlights */}
-            <div className="mb-5">
-              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
-                02 // TECHNICAL_IMPLEMENTATION
-              </div>
-              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
-                {activeModalProject.caseStudy.technicalHighlights.map((item, i) => (
-                  <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Findings & Results */}
-            <div className="mb-5">
-              <div className="text-[0.65rem] text-[var(--accent-emerald)] font-bold tracking-wider mb-2">
-                03 // FINDINGS_&amp;_RESULTS
-              </div>
-              <ul className="space-y-1.5 text-xs text-[var(--text-primary)]">
-                {activeModalProject.caseStudy.findingsOrResults.map((item, i) => (
-                  <li key={i} className="flex gap-2 items-start">
-                    <span className="text-[var(--accent-emerald)] font-bold">&gt;</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Key Takeaway */}
-            <div className="p-3 bg-[var(--bg-surface)] border border-[var(--border-color)] text-xs text-[var(--text-primary)] mb-6">
-              <span className="font-bold text-[var(--accent-emerald)]">KEY TAKEAWAY: </span>
-              {activeModalProject.caseStudy.keyTakeaway}
-            </div>
-
-            <div className="flex justify-between items-center pt-3 border-t border-[var(--border-color)]">
-              <span className="text-[0.6rem] text-[var(--text-secondary)]">
-                AUTHOR: Krish Sharma (@0daykrish)
-              </span>
-              <button
-                onClick={() => setActiveModalProject(null)}
-                className="btn-brutalist"
-              >
-                <span className="btn-tab">✓</span>
-                <span className="btn-body text-[0.62rem]">DISMISS</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Case Study Slide-out Drawer */}
+      <ProjectDrawer
+        project={selectedDrawerProject}
+        onClose={() => setSelectedDrawerProject(null)}
+      />
     </section>
   );
 }

@@ -36,7 +36,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-24 border-b border-[var(--border-color)]" aria-label="Contact Krish Sharma">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="SECURE_TRANSMISSION" number="008" id="contact-heading" />
+        <SectionHeader label="SECURE_TRANSMISSION" number="011" id="contact-heading" />
 
         <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-[5px_5px_0px_var(--shadow-color)]">
           {/* Header */}

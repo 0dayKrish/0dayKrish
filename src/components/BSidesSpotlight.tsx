@@ -16,7 +16,7 @@ export function BSidesSpotlight() {
       aria-label="BSides Vadodara Leadership"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="COMMUNITY_LEADERSHIP" number="003" id="bsides-heading" />
+        <SectionHeader label="COMMUNITY_LEADERSHIP" number="008" id="bsides-heading" />
 
         {/* Hero Spotlight Card */}
         <div className="border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-[5px_5px_0px_var(--shadow-color)] mb-8">

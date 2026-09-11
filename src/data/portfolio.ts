@@ -163,6 +163,229 @@ export const portfolioData: PortfolioData = {
     },
   ],
 
+  currentlyFocus: [
+    {
+      id: "current-research",
+      index: "01",
+      category: "RESEARCH",
+      title: "Offensive Security & AI Threat Vectors",
+      subtitle: "Vulnerability Research & Adversarial Testing",
+      description:
+        "Investigating broken object authorization boundaries (BOLA/IDOR) in modern REST APIs and researching prompt injection attack vectors against RAG and agentic LLM systems.",
+      status: "ACTIVE",
+      tags: ["Web App Security", "BOLA / IDOR", "OWASP LLM Top 10", "Burp Suite"],
+      linkHref: "#research",
+      linkLabel: "EXPLORE RESEARCH DOSSIERS",
+    },
+    {
+      id: "current-bsides",
+      index: "02",
+      category: "BUILDING",
+      title: "BSides Vadodara Ecosystem",
+      subtitle: "Community Leadership & Operations",
+      description:
+        "Directing community operations for Western India's independent security conference, coordinating CFP reviews, organizing hands-on workshops, and bridging academia with enterprise cybersecurity.",
+      status: "ACTIVE",
+      tags: ["Security BSides", "CFP Direction", "Workshops", "Vadodara"],
+      linkHref: "#bsides",
+      linkLabel: "VIEW BSIDES INITIATIVE",
+    },
+    {
+      id: "current-tooling",
+      index: "03",
+      category: "WORKING ON",
+      title: "Security Tooling & Automation",
+      subtitle: "Reconnaissance & Hardening Pipelines",
+      description:
+        "Developing modular CLI automation tools including Wraith for bug bounty asset discovery and engineering hardened Zero Trust self-hosted infrastructure telemetry.",
+      status: "ACTIVE",
+      tags: ["Python", "CLI Automation", "Asset Discovery", "Bug Bounty"],
+      linkHref: "#projects",
+      linkLabel: "VIEW PROJECT BUILDS",
+    },
+    {
+      id: "current-accreditations",
+      index: "04",
+      category: "EXPLORING",
+      title: "Offensive Accreditations & Hands-On Labs",
+      subtitle: "Active Certification Pipeline",
+      description:
+        "Advancing through rigorous offensive security laboratories and exam preparations across TryHackMe Junior Pentester (PT1), EC-Council CPENT, and Altered Security CRTP.",
+      status: "ACTIVE",
+      tags: ["TryHackMe PT1", "EC-Council CPENT", "CRTP Active Directory", "MSec-CAIS"],
+      linkHref: "#credentials",
+      linkLabel: "CHECK ACCREDITATIONS",
+    },
+  ],
+
+  attackSurfaceDomains: [
+    {
+      id: "web-security",
+      label: "Web Security",
+      category: "Application Security",
+      shortDescription:
+        "Auditing modern web architectures for authentication flaws, broken authorization logic, session hijacking, and injection vulnerabilities.",
+      technologies: ["Burp Suite", "OWASP Top 10", "JWT", "Session Security", "REST APIs"],
+      relatedProjectIds: ["email-tracker", "api-bola-auditor"],
+      relatedResearchIds: ["research-01", "research-03"],
+      sectionLink: "#projects",
+      position: { x: 50, y: 12 },
+    },
+    {
+      id: "offensive-sec",
+      label: "Offensive Security",
+      category: "Exploitation & Red Teaming",
+      shortDescription:
+        "Methodical penetration testing, adversarial simulation, boundary probing, and adopting the attacker mindset to uncover systemic weaknesses.",
+      technologies: ["Kali Linux", "Metasploit", "Nmap", "Manual Exploitation", "Linux"],
+      relatedProjectIds: ["wraith-recon", "web-recon-pipeline"],
+      relatedResearchIds: ["research-04"],
+      sectionLink: "#projects",
+      position: { x: 80, y: 22 },
+    },
+    {
+      id: "pen-testing",
+      label: "Penetration Testing",
+      category: "Assessment & Auditing",
+      shortDescription:
+        "Comprehensive technical security assessments mapping attack surfaces, validating findings, and eliminating theoretical false-positives.",
+      technologies: ["Burp Suite", "Nmap", "ffuf", "Nikto", "OWASP ZAP"],
+      relatedProjectIds: ["web-recon-pipeline", "network-telemetry-sentinel"],
+      relatedResearchIds: ["research-04"],
+      sectionLink: "#methodology",
+      position: { x: 92, y: 50 },
+    },
+    {
+      id: "vuln-research",
+      label: "Vulnerability Research",
+      category: "Deep-Dive Analysis",
+      shortDescription:
+        "Dissecting complex architectural logic flaws, authorization bypasses, cryptographic misconfigurations, and novel attack surfaces.",
+      technologies: ["CWE", "CVE / CVSS", "STRIDE", "MITRE ATT&CK", "Code Review"],
+      relatedProjectIds: ["api-bola-auditor"],
+      relatedResearchIds: ["research-01", "research-02", "research-03", "research-04"],
+      sectionLink: "#research",
+      position: { x: 80, y: 78 },
+    },
+    {
+      id: "ai-llm-security",
+      label: "AI / LLM Security",
+      category: "Emerging Threat Vectors",
+      shortDescription:
+        "Adversarial testing of large language models, prompt injection defenses, context contamination, and agentic guardrail bypass analysis.",
+      technologies: ["OWASP LLM Top 10", "Prompt Injection", "Guardrail Bypass", "RAG Security", "MSec-CAIS"],
+      relatedProjectIds: ["ai-prompt-eval"],
+      relatedResearchIds: ["research-02"],
+      sectionLink: "#projects",
+      position: { x: 50, y: 88 },
+    },
+    {
+      id: "sec-automation",
+      label: "Security Automation",
+      category: "Tooling & Infrastructure",
+      shortDescription:
+        "Building lightweight CLI utilities, event-driven backup pipelines, and automated asset discovery workflows for offensive and defensive operations.",
+      technologies: ["Python", "Bash", "systemd", "FastAPI", "rclone", "Docker"],
+      relatedProjectIds: ["wraith-recon", "cloud-backup-manager", "home-server-infra"],
+      relatedResearchIds: [],
+      sectionLink: "#projects",
+      position: { x: 20, y: 78 },
+    },
+    {
+      id: "community-builder",
+      label: "Community Builder",
+      category: "Ecosystem & Mentorship",
+      shortDescription:
+        "Connecting grassroots researchers, ambitious students, and enterprise CISOs through collaborative knowledge-sharing and technical workshops.",
+      technologies: ["Workshops", "Mentorship", "Technical Talks", "CFP Review"],
+      relatedProjectIds: [],
+      relatedResearchIds: [],
+      sectionLink: "#about",
+      position: { x: 8, y: 50 },
+    },
+    {
+      id: "bsides-vadodara",
+      label: "BSides Vadodara",
+      category: "Conference Leadership",
+      shortDescription:
+        "Founding and directing Gujarat's premier community cybersecurity conference to democratize offensive security education.",
+      technologies: ["Event Operations", "Keynotes", "Sponsorships", "Villages"],
+      relatedProjectIds: [],
+      relatedResearchIds: [],
+      sectionLink: "#bsides",
+      position: { x: 20, y: 22 },
+    },
+  ],
+
+  securityMethodology: [
+    {
+      step: "01",
+      title: "RECON",
+      phase: "Discovery & Footprinting",
+      summary: "Understand the target and identify the external attack surface.",
+      description:
+        "Enumerate domain assets, subdomains, network ranges, open ports, and technology stacks to establish a complete target perimeter before conducting active probes.",
+      techniques: ["Passive OSINT", "DNS Correlation", "Port & Service Fingerprinting", "ASN & Range Mapping"],
+      deliverable: "Target Attack Surface Inventory",
+      icon: "Radar",
+    },
+    {
+      step: "02",
+      title: "MAP",
+      phase: "Architecture & Boundary Profiling",
+      summary: "Map technologies, endpoints, authentication boundaries, APIs, and potential entry points.",
+      description:
+        "Trace request-response flows, reverse-engineer API route hierarchies, inspect client JavaScript bundles, and delineate trust boundaries between microservices.",
+      techniques: ["API Schema Extraction", "Authentication Flow Tracing", "Hidden Parameter Fuzzing", "Technology Stack Auditing"],
+      deliverable: "Threat Landscape & Route Matrix",
+      icon: "Network",
+    },
+    {
+      step: "03",
+      title: "TEST",
+      phase: "Vulnerability Assessment & Fuzzing",
+      summary: "Test assumptions and identify security weaknesses across logic and protocols.",
+      description:
+        "Execute systematic manual and automated probes against access controls, session state, injection surfaces, parameter tampering, and business logic assumptions.",
+      techniques: ["Stateful Parameter Tampering", "BOLA / IDOR Probing", "Injection Vector Testing", "Business Logic Scenarios"],
+      deliverable: "Observed Anomalies & Flaw Identifiers",
+      icon: "Terminal",
+    },
+    {
+      step: "04",
+      title: "VALIDATE",
+      phase: "Exploitability & Impact Verification",
+      summary: "Validate whether a finding is actually exploitable and determine its real impact.",
+      description:
+        "Strip away theoretical assumptions to construct reliable, non-destructive proof-of-concepts, eliminating false-positives and determining true business impact.",
+      techniques: ["Exploit Chaining", "False-Positive Elimination", "CVSS Severity Alignment", "Privilege Escalation Proof"],
+      deliverable: "Validated PoC & Severity Vector",
+      icon: "ShieldAlert",
+    },
+    {
+      step: "05",
+      title: "DOCUMENT",
+      phase: "Technical Dossier & Reporting",
+      summary: "Document the issue clearly and make the result reproducible.",
+      description:
+        "Draft comprehensive technical dossiers detailing step-by-step reproduction instructions, raw HTTP request/response artifacts, and actionable remediation roadmaps.",
+      techniques: ["Step-by-Step Reproduction Guides", "Raw Packet Artifacts", "Risk Vector Scoring", "Clear Evidence Captures"],
+      deliverable: "Comprehensive Security Report",
+      icon: "FileText",
+    },
+    {
+      step: "06",
+      title: "REMEDIATE",
+      phase: "Root-Cause Hardening & Advisory",
+      summary: "Where applicable, identify the underlying cause and help determine an appropriate fix.",
+      description:
+        "Analyze systemic root causes—such as architectural design gaps or missing database ownership checks—and provide practical, defense-in-depth guidance.",
+      techniques: ["Architectural Hardening", "Query-Level Ownership Checks", "Defense-in-Depth Policies", "Verification Re-Testing"],
+      deliverable: "Defensive Mitigation Guidance",
+      icon: "CheckCircle2",
+    },
+  ],
+
   featuredProjects: [
     {
       id: "wraith-recon",
@@ -186,6 +409,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "Wraith is a modular Python CLI reconnaissance framework engineered specifically for bug bounty automation and penetration testing scope discovery.",
+        problem:
+          "External attack surfaces in wide-scope bug bounty programs and enterprise penetration tests require hours of repetitive, manual reconnaissance across fragmented tools, delaying targeted testing of business logic.",
+        approach:
+          "Engineered an extensible, asynchronous Python CLI tool integrating multi-source DNS enumeration, threaded socket port probing, and fingerprinting heuristics into a cohesive discovery pipeline.",
         objectives: [
           "Automate fast, multi-source subdomain enumeration and target footprinting",
           "Integrate multi-threaded port scanning with service version and vulnerability fingerprinting",
@@ -196,6 +423,8 @@ export const portfolioData: PortfolioData = {
           "Automated target asset correlation between active DNS discovery and open port identification",
           "Implemented vulnerability fingerprinting heuristics to quickly surface high-value attack surfaces",
         ],
+        securityDetails:
+          "Applies targeted banner grabbing, HTTP response header profiling, SSL certificate SAN extraction, and signature matching to isolate shadowed or unmaintained assets.",
         findingsOrResults: [
           "Dramatically reduced the time required to map wide-scope external perimeters in bug bounty programs",
           "Published as an open-source research tool on GitHub with clean documentation",
@@ -226,6 +455,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "Architected and deployed a self-hosted server platform on repurposed hardware, containerizing core services and implementing enterprise-grade Zero Trust remote access and security monitoring.",
+        problem:
+          "Self-hosting sensitive internal utilities on physical hardware traditionally exposes public IP addresses, opening home networks to automated port scans, brute-force probes, and boundary traversal.",
+        approach:
+          "Architected an isolated containerized environment on repurposed hardware fronted by Cloudflare Zero Trust tunnels and monitored continuously by Wazuh SIEM and Prometheus/Grafana.",
         objectives: [
           "Repurpose hardware into an isolated, containerized self-hosted platform for media, storage, and infrastructure",
           "Eliminate direct public exposure of internal services using Cloudflare DNS and Zero Trust Tunnels",
@@ -236,6 +469,8 @@ export const portfolioData: PortfolioData = {
           "Enforced Cloudflare Zero Trust identity policies and encrypted tunnels for remote access without port forwarding",
           "Configured Wazuh agents for continuous log analysis, authentication event auditing, and anomaly detection",
         ],
+        securityDetails:
+          "Enforces Zero Trust identity validation and eliminates all inbound port forwarding. Wazuh host agents continuously ingest syslog and SSH telemetry for anomalous behavior.",
         findingsOrResults: [
           "Zero open inbound ports on the network boundary, effectively shielding internal infrastructure from unauthorized scans",
           "Complete real-time operational and security telemetry across authentication logs, system metrics, and anomalous events",
@@ -267,6 +502,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "Cloud Backup Manager is an automated Linux backup and synchronization toolchain utilizing systemd service automation and rclone to provide resilient, continuous file protection.",
+        problem:
+          "Static cron-based backup scripts either poll excessively or fail to catch sudden data loss between intervals, lacking verifiable cryptographic audit logs to confirm offsite integrity.",
+        approach:
+          "Built a Linux daemon using systemd inotify path watchers and rclone differential synchronization to trigger instant, event-driven offsite encrypted backups upon file mutation.",
         objectives: [
           "Implement automated real-time file-change detection on Linux environments",
           "Orchestrate multi-cloud upload targets through optimized rclone workflows",
@@ -277,6 +516,8 @@ export const portfolioData: PortfolioData = {
           "Integrated rclone cloud synchronization with bandwidth-efficient differential upload logic",
           "Built structured audit logging recording upload statuses, file hashes, and execution metrics",
         ],
+        securityDetails:
+          "Generates SHA-256 file integrity checksums, maintains structured audit logs for forensic validation, and safeguards offsite cloud endpoints against unauthorized tampering.",
         findingsOrResults: [
           "Automated disaster-recovery readiness with instant offsite synchronization on file modification",
           "Eliminated reliance on fragile cron polling in favor of native Linux event-driven architecture",
@@ -307,6 +548,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "Developed a Python Flask web application that employs 1x1 transparent tracking pixel beacons and SMTP handling to analyze email interaction patterns and client device forensics.",
+        problem:
+          "Understanding how mail clients handle untrusted external assets and identifying privacy leakage via automatic image loading requires empirical forensic telemetry.",
+        approach:
+          "Developed a Python Flask service serving dynamic 1x1 transparent tracking beacons combined with SMTP injection to capture client interaction metadata in real time.",
         objectives: [
           "Deploy an endpoint serving a dynamic 1x1 tracking pixel that logs open timestamps, client IPs, and user agents",
           "Implement robust SMTP message handling with automatic URL detection and parameter injection",
@@ -317,6 +562,8 @@ export const portfolioData: PortfolioData = {
           "Extracted and parsed client request headers to capture device types, operating systems, and client environments",
           "Designed dashboard views providing clear visualization of read counts, geographical IP lookups, and timeline metrics",
         ],
+        securityDetails:
+          "Analyzes User-Agent strings, client IP geographical routing, and HTTP cache-control bypass techniques while demonstrating client tracking mitigation controls.",
         findingsOrResults: [
           "Accurately gathered forensic engagement telemetry across diverse webmail and desktop client applications",
           "Demonstrated practical implementation of web beacons and their privacy implications in modern email systems",
@@ -339,6 +586,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "With the rapid adoption of agentic LLM systems, prompt injection and jailbreaks represent direct risks to application business logic. This project evaluates model vulnerabilities against automated injection payloads.",
+        problem:
+          "Modern LLM agent architectures that ingest untrusted user input or external web data are susceptible to direct jailbreaks and indirect prompt injection attacks that subvert core instructions.",
+        approach:
+          "Engineered an automated adversarial test harness simulating 50+ injection patterns, multi-turn cognitive deception, and token boundary bypasses against LLM endpoints.",
         objectives: [
           "Benchmark LLM guardrails against direct and indirect prompt injections",
           "Test extraction resistance of system instructions and sensitive context",
@@ -349,6 +600,8 @@ export const portfolioData: PortfolioData = {
           "Validates output against strict delimiter enforcement and data sanitization filters",
           "Generates structured JSON and Markdown audit logs with CVSS-inspired risk vectors",
         ],
+        securityDetails:
+          "Evaluates system prompt extraction resistance, tests delimiter enforcement, and audits outputs against OWASP Top 10 for LLM Applications (LLM01 Prompt Injection).",
         findingsOrResults: [
           "Demonstrated that heuristic guardrails without semantic validation could be bypassed via multi-turn framing",
           "Implemented defense-in-depth sanitization reducing injection success significantly in test harnesses",
@@ -371,6 +624,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "During web application penetration tests, thorough reconnaissance is critical to uncovering forgotten staging endpoints, misconfigured headers, and exposed administrative interfaces.",
+        problem:
+          "Shadowed staging subdomains, legacy API endpoints, and missing defensive HTTP headers frequently go undetected during preliminary penetration testing phases.",
+        approach:
+          "Developed an integrated offensive bash/Python pipeline coordinating fast fuzzing, virtual host discovery, and security header audits into unified Burp Suite target files.",
         objectives: [
           "Unify asynchronous asset discovery and virtual host detection into a streamlined pipeline",
           "Automate security header and SSL/TLS cipher audit checks",
@@ -381,6 +638,8 @@ export const portfolioData: PortfolioData = {
           "Integrated rate-limiting aware fuzzing to minimize detection and avoid service disruption",
           "Automates baseline scans across target subdomains with consolidated reporting",
         ],
+        securityDetails:
+          "Automates rate-limiting-aware parameter fuzzing with ffuf, verifies HSTS/CSP header enforcement, and flags unindexed administrative paths.",
         findingsOrResults: [
           "Drastically cut reconnaissance time during security assessments while surfacing shadowed endpoints",
           "Flagged missing security headers (HSTS, CSP, X-Frame-Options) across testing environments",
@@ -403,6 +662,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "BOLA remains the #1 risk on the OWASP API Security Top 10. This lab environment simulates real-world SaaS multi-tenancy access-control logic to practice and validate remediation strategies.",
+        problem:
+          "Broken Object Level Authorization (BOLA/IDOR) is the #1 OWASP API vulnerability, often overlooked because traditional automated scanners cannot understand multi-tenant business context.",
+        approach:
+          "Designed a dedicated REST API lab simulating multi-tenant SaaS environments to model horizontal and vertical privilege escalation vectors across database queries.",
         objectives: [
           "Demonstrate exploitation mechanisms of IDOR and BOLA in microservices architectures",
           "Implement robust user-context validation on every object retrieval query",
@@ -413,6 +676,8 @@ export const portfolioData: PortfolioData = {
           "Mapped stateful parameter tampering vectors across nested API routes",
           "Provided side-by-side vulnerable vs hardened code patterns",
         ],
+        securityDetails:
+          "Tests stateful parameter tampering across integer vs UUID identifiers, proves the failure of UI-only access control, and demonstrates database-level tenant binding remediation.",
         findingsOrResults: [
           "Proved that frontend UI role checks provide zero security without backend database query ownership verification",
           "Codified strict object ownership checks into reusable API security patterns",
@@ -435,6 +700,10 @@ export const portfolioData: PortfolioData = {
       caseStudy: {
         overview:
           "Understanding low-level packet flow is essential for both penetration testing and infrastructure hardening. This tool provides real-time protocol telemetry across local interfaces.",
+        problem:
+          "Lax internal network segmentation and unencrypted legacy protocols transmit sensitive credentials in cleartext, enabling credential sniffing and lateral movement.",
+        approach:
+          "Developed a lightweight Python socket capture script utilizing tshark packet dissection to inspect live TCP/UDP handshakes and flag non-compliant plaintext protocols.",
         objectives: [
           "Inspect raw network frames to identify cleartext credential transmissions",
           "Audit outbound DNS query rates for anomalies",
@@ -445,6 +714,8 @@ export const portfolioData: PortfolioData = {
           "Automated rule checks against known insecure ports and legacy protocols",
           "Real-time console telemetry with colorized severity alerts",
         ],
+        securityDetails:
+          "Flags cleartext HTTP, FTP, and Telnet communications, inspects high-frequency DNS query volume for covert tunneling heuristics, and verifies boundary egress enforcement.",
         findingsOrResults: [
           "Detected lingering legacy cleartext services in test lab subnets",
           "Validated proper TLS termination on internal load balancers",

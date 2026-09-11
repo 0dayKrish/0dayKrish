@@ -24,7 +24,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Technical Skills">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="SECURITY_CAPABILITIES" number="002" id="skills-heading" />
+        <SectionHeader label="SECURITY_CAPABILITIES" number="004" id="skills-heading" />
 
         {/* Section Lead & Filter Controls */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">

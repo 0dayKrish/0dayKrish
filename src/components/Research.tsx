@@ -25,7 +25,7 @@ export function Research() {
   return (
     <section id="research" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Security Research">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="SECURITY_RESEARCH" number="005" id="research-heading" />
+        <SectionHeader label="SECURITY_RESEARCH" number="007" id="research-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">

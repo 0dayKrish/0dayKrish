@@ -10,7 +10,7 @@ export function Experience() {
   return (
     <section id="experience" className="py-16 sm:py-20 border-b border-[var(--border-color)]" aria-label="Experience and Leadership">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <SectionHeader label="OPERATIONS_TIMELINE" number="007" id="experience-heading" />
+        <SectionHeader label="OPERATIONS_TIMELINE" number="010" id="experience-heading" />
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
           <p className="font-mono text-xs sm:text-[0.8rem] text-[var(--text-secondary)] max-w-xl">
