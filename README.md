@@ -1,115 +1,153 @@
-# Krish Sharma (0daykrish) — Cybersecurity Portfolio
+Hey, I’m Krish.
 
-> Official personal portfolio website of **Krish Sharma** (`0daykrish`) — Cybersecurity Researcher, Penetration Tester, AI Security Practitioner, and Founder of [BSides Vadodara](https://bsidesvadodara.in).
+Cybersecurity Student · AI Security · Purple Teaming
 
----
+I don’t just learn security. I build, break, understand, and secure.
 
-## ⚡ Overview & Aesthetic
+I’m a cybersecurity-focused B.Tech CSE student exploring the space where offensive security meets AI.
 
-Designed with a high-precision neo-brutalist technical aesthetic:
-- **Zero AI cliches**: No cheesy Matrix rain, skulls, or fake green terminals. Clean, sharp typography, architectural borders, structured telemetry, and restrained security-emerald accents.
-- **Strictly Decoupled Data**: All portfolio content (projects, research dossiers, skills, community work, credentials, contact information) resides in [`src/data/portfolio.ts`](./src/data/portfolio.ts) so you can update any detail without touching UI components.
-- **Production Ready**: Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Lucide icons.
-- **100% Factual & Authentic**: Reflects Krish Sharma's actual cybersecurity background, certifications, and leadership roles.
+Currently spending my time on:
 
----
+* AI & LLM Security
+* Web Application Security
+* Offensive Security & Purple Teaming
+* Python Security Automation
+* Network & Cloud Security
+* Security Research & CTFs
 
-## 🛠️ Tech Stack
+⸻
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Typography**: Space Mono (via Next.js Google Fonts) + Geist
-- **Icons**: Lucide React + Custom Inline SVGs
-- **Deployment**: Vercel-ready (zero configuration needed)
+whoami
 
----
+$ whoami
+Krish Sharma
+$ cat /etc/interests
+[+] AI Security
+[+] LLM Security
+[+] Web Security
+[+] Offensive Security
+[+] Purple Teaming
+[+] Cloud Security
+[+] Security Automation
 
-## 📂 Project Structure
+⸻
 
-```
-portfolio/
-├── src/
-│   ├── app/
-│   │   ├── globals.css         # Neo-brutalist tokens, button styles, custom tags
-│   │   ├── layout.tsx          # Root layout, fonts, full SEO & OpenGraph tags
-│   │   ├── page.tsx            # Main single-page application orchestrator
-│   │   ├── robots.ts           # SEO robots.txt generator
-│   │   └── sitemap.ts          # SEO sitemap.xml generator
-│   ├── components/
-│   │   ├── Navbar.tsx          # Sticky navigation with live section tracker & mobile drawer
-│   │   ├── Hero.tsx            # Krish Sharma // 0daykrish identity, radar, actions & uptime
-│   │   ├── About.tsx           # Security practitioner manifesto & verified metrics
-│   │   ├── Skills.tsx          # 6 categorized cybersecurity domains with real-time filter
-│   │   ├── BSidesSpotlight.tsx # Dedicated BSides Vadodara founder feature & link
-│   │   ├── Projects.tsx        # Technical projects with interactive case-study modals
-│   │   ├── Research.tsx        # Vulnerability dossiers with severity tags & technical reports
-│   │   ├── Certifications.tsx  # Verified credentials log (MSec-CAIS, CCST, Palo Alto, etc.)
-│   │   ├── Experience.tsx      # Editorial table timeline of community & technical practice
-│   │   ├── Contact.tsx         # "Let's talk security" direct email cards & mail composer
-│   │   ├── Footer.tsx          # Minimal technical footer & back-to-top button
-│   │   └── ui/
-│   │       ├── CyberRadar.tsx  # Interactive security vector telemetry & radar reticle
-│   │       └── SectionHeader.tsx# Standardized brutalist // SECTION dividers
-│   ├── data/
-│   │   └── portfolio.ts        # Central source of truth for all content and links
-│   └── types/
-│       └── portfolio.ts        # TypeScript interfaces for portfolio data architecture
-├── public/                     # Static assets & icons
-├── package.json
-└── tsconfig.json
-```
+What I’m building
 
----
+BSides Vadodara
 
-## 🚀 Getting Started
+Founder — BSides Vadodara
 
-### 1. Install Dependencies
-```bash
-npm install
-```
+Building a community around cybersecurity, knowledge sharing, security research, and hands-on learning.
 
-### 2. Run the Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+People → Knowledge → Security
 
-### 3. Build for Production
-```bash
-npm run build
-npm run start
-```
+⸻
 
-### 4. Run Linter
-```bash
-npm run lint
-```
+My Security Mindset
 
----
+Recon
+  ↓
+Understand
+  ↓
+Break
+  ↓
+Learn
+  ↓
+Build
+  ↓
+Defend
+  ↓
+Repeat
 
-## 🌐 Deploying to Vercel
+I believe the best way to understand a system is to see how it fails.
 
-1. Push this repository to GitHub:
-   ```bash
-   git add .
-   git commit -m "Initial commit of Krish Sharma portfolio"
-   git branch -M main
-   git remote add origin https://github.com/0daykrish/portfolio.git
-   git push -u origin main
-   ```
-2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your `portfolio` repository.
-4. Framework preset will automatically detect **Next.js**.
-5. Click **Deploy** — your portfolio is live in seconds!
+⸻
 
----
+Tech & Security
 
-## 🔒 Contact & Ownership
+Languages
 
-- **Krish Sharma** (`0daykrish`)
-- Work / BSides: [krish@bsidesvadodara.in](mailto:krish@bsidesvadodara.in)
-- Personal: [0daykrish@gmail.com](mailto:0daykrish@gmail.com)
-- LinkedIn: [linkedin.com/in/0daykrish](https://linkedin.com/in/0daykrish)
-- GitHub: [github.com/0daykrish](https://github.com/0daykrish)
-- BSides Vadodara: [bsidesvadodara.in](https://bsidesvadodara.in)
+Python JavaScript HTML CSS Bash
+
+Security
+
+Web Security OWASP Top 10 Vulnerability Assessment
+Network Security Threat Analysis Risk Assessment
+LLM Security Prompt Injection AI Security
+
+Tools
+
+Nmap Burp Suite Wireshark Metasploit JADX Scapy Linux
+
+Cloud
+
+AWS Cloudflare Nginx DNS Secure Web Infrastructure
+
+⸻
+
+Currently Learning
+
+AI Security        ███████████████░░░
+Web Pentesting     ████████████░░░░░
+Network Security   █████████████░░░░
+Purple Teaming     █████████░░░░░░░░
+Cloud Security     ███████████░░░░░░
+
+Not chasing checkboxes.
+
+Trying to understand why things break.
+
+⸻
+
+Projects
+
+ZeroNest
+
+A gamified cybersecurity learning platform focused on practical security training and hands-on challenges.
+
+Security Research
+
+Experimenting with vulnerable applications, security tools, LLM attack surfaces, automation, and offensive security techniques.
+
+More experiments coming.
+Some will work. Some absolutely won’t.
+
+⸻
+
+Certifications & Learning
+
+* Modern Security — Certified AI Security Expert (MSec-CAIS)
+* Palo Alto Networks Cybersecurity Academy — Cybersecurity Foundation
+* Pearson Global IT Specialization — HTML, CSS & JavaScript
+* Python Programming — Security-focused scripting & automation
+
+⸻
+
+GitHub Philosophy
+
+Write code. Break code. Read logs. Repeat.
+
+I don’t want my GitHub to be a collection of certificates.
+
+I want it to show what I actually built, tested, broke, and learned.
+
+⸻
+
+Let’s Connect
+
+If you’re interested in:
+
+Cybersecurity · AI Security · LLM Security · Purple Teaming · CTFs · Security Research
+
+we’ll probably have something to talk about.
+
+⸻
+
+╔══════════════════════════════════════════╗
+║                                          ║
+║   BUILD  •  BREAK  •  LEARN  •  SECURE   ║
+║                                          ║
+╚══════════════════════════════════════════╝
+
+Keep learning. Keep breaking things responsibly.
